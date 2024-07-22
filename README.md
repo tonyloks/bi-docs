@@ -1,3 +1,68 @@
+  # Основная техническая информация
+хост:порт 77.232.130.241:8123\
+login: admin\
+password: 12345m678\
+Схемы:
+* default - пустая
+* mp_db - основная
+  
+  # 1. Датасеты
+Список датасетов:
+1. Выкупы;
+1. Основной датасет;
+1. Остатки;
+1. Остатки размеры;
+1. План факт;
+1. Юнит экономика.
+  # 2. Представления
+Список представлений:
+1. mp_db.ads_stat_summary;
+1. mp_db.articleadd;
+1. mp_db.execute_plan;
+1. mp_db.kt_stat_summary;
+1. mp_db.nmid_fullstat_renamed;
+1. mp_db.order_current;
+1. mp_db.orders_stat_summary;
+1. mp_db.paid_storage_summary;
+1. mp_db.plan_fact_current;
+1. mp_db.sales_detail_report_summary;
+1. mp_db.sales_stat_summary;
+1. mp_db.stock_size;
+1. mp_db.stocks_stat_new;
+1. mp_db.unitka.
+ # 3. Таблицы
+Список таблиц:
+1. mp_db.ads_cost_history;
+1. mp_db.advert_stats;
+1. mp_db.cards_content;
+1. mp_db.commissions;
+1. mp_db.cost_price;
+1. mp_db.kt_stats;
+1. mp_db.orders_stat;
+1. mp_db.paid_storage;
+1. mp_db.product_plan;
+1. mp_db.sales_detail_report_stat;
+1. mp_db.sales_stat;
+1. mp_db.stocks_stat.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Database Tables Documentation
 
 ## mp_db.advert_stats
