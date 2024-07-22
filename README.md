@@ -27,14 +27,14 @@
 **Присоединяемые таблицы:** нет  
 **Группировка по полям:** date_ads, nmId
 
-| Номер столбца | Название столбца | Тип столбца      | Агрегация |
-|---------------|------------------|------------------|-----------|
-| 1             | date_ads         | Date(10,notnull) | -         |
-| 2             | nmid_ads         | Int32(10,notnull)| -         |
-| 3             | views_ads        | Int64(19,notnull)| sum       |
-| 4             | clicks_ads       | Int64(19,notnull)| sum       |
-| 5             | sum_ads          | Float64(22,notnull)| sum     |
-| 6             | atbs_ads         | Int64(19,notnull)| sum       |
-| 7             | orders_ads       | Int64(19,notnull)| sum       |
-| 8             | shks_ads         | Int64(19,notnull)| sum       |
-| 9             | sum_price_ads    | Float64(22,notnull)| sum     |
+| Номер столбца | Название столбца | Тип столбца      | Агрегация | Ссылка на родительскую таблицу  |
+|---------------|------------------|------------------|-----------|---------------------------------|
+| 1             | date_ads         | Date(10,notnull) | -         | [date](#mp_dbadvert_stats)      |
+| 2             | nmid_ads         | Int32(10,notnull)| -         | [nmId](#mp_dbadvert_stats)      |
+| 3             | views_ads        | Int64(19,notnull)| sum       | [views](#mp_dbadvert_stats)     |
+| 4             | clicks_ads       | Int64(19,notnull)| sum       | [clicks](#mp_dbadvert_stats)    |
+| 5             | sum_ads          | Float64(22,notnull)| sum     | [sum](#mp_dbadvert_stats)       |
+| 6             | atbs_ads         | Int64(19,notnull)| sum       | [atbs](#mp_dbadvert_stats)      |
+| 7             | orders_ads       | Int64(19,notnull)| sum       | [orders](#mp_dbadvert_stats)    |
+| 8             | shks_ads         | Int64(19,notnull)| sum       | [shks](#mp_dbadvert_stats)      |
+| 9             | sum_price_ads    | Float64(22,notnull)| sum     | [sum_price](#mp_dbadvert_stats) |
