@@ -168,8 +168,19 @@ password: 12345m678\
 | 28 | Общее Количество Заказов | нет | целое число / сумма | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
 | 29 | Общее Количество Продаж | нет | целое число / сумма | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
 
-
-
+### Остатки_размеры
+**Таблица / представление** - [mp_db.stock_size](#mp_db.stock_size)\
+**Есть ли расчетные поля** - нет\
+**Наличие параметров** - нет\
+**Фильтрация** - нет
+| Номер поля | Поле | Формула | Тип и аггрегация | Ссылка на родительскую таблицу |
+| ---------- | ---- | ---- | ---- | ---- |
+| 1 | Карточка товара | ``` [nmId] ``` | строка / нет | нет |
+| 2 | Ссылка | ``` URL('https://www.wildberries.ru/catalog/'+ str([Карточка товара]) + '/detail.aspx', str([Карточка товара])) ``` | разметка / нет | нет |
+| 3 | warehouseName | нет  | строка / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
+| 4 | nmId | нет  | целое число / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
+| 5 | techSize | нет  | строка / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
+| 6 | quantity | нет  | целое число / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
 
 
 
