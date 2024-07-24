@@ -364,8 +364,8 @@ wb_sku = nmid_orders\
 |28|Сумма заказов руб. (Р)|[Сумма заказов руб. (Р)](#Сумма заказов руб. (Р))|Nullable(22,null)|-|
 
 ### mp_db.order_current
-**Родительская таблица** - [mp_db.orders_stat_summary](#mp_db.orders_stat_summary)
-**Присоединяемые таблицы** - нет
+**Родительская таблица** - [mp_db.orders_stat_summary](#mp_db.orders_stat_summary)\
+**Присоединяемые таблицы** - нет\
 **Группировка по полям** - nmid_orders
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
@@ -373,12 +373,160 @@ wb_sku = nmid_orders\
 |1|nmid_orders|[nmid_orders](#nmid_orders)|Int32(10,notnull)|-|
 |2|sum(total_count_orders)|[sum(total_count_orders)](#sum(total_count_orders))|UInt64(20,notnull)|sum|
 
+### mp_db.orders_stat_summary
+**Родительская таблица** - [mp_db.orders_stat](#mp_db.orders_stat)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - nmId, date
 
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|nmid_orders|[nmid_orders](#nmid_orders)|Int32(10,notnull)|-|
+|2|date_orders|[date_orders](#date_orders)|Date(10,notnull)|-|
+|3|total_count_orders|[total_count_orders](#total_count_orders)|UInt64(20,notnull)|count|
+|4|cancelled_count_orders|[cancelled_count_orders](#cancelled_count_orders)|UInt64(20,notnull)|countIf(orders_stat.isCancel = 1)|
+|5|not_cancelled_count_orders|[not_cancelled_count_orders](#not_cancelled_count_orders)|UInt64(20,notnull)|countIf(orders_stat.isCancel = 0)|
+|6|sum_totalprice_orders|[sum_totalprice_orders](#sum_totalprice_orders)|Float64(22,notnull)|sum|
+|7|sum_spp_orders|[sum_spp_orders](#sum_spp_orders)|Float64(22,notnull)|sum|
+|8|sum_finishedprice_orders|[sum_finishedprice_orders](#sum_finishedprice_orders)|Float64(22,notnull)|sum|
+|9|sum_pricewithdisc_orders|[sum_pricewithdisc_orders](#sum_pricewithdisc_orders)|Float64(22,notnull)|sum|
 
+### mp_db.paid_storage_summary
+**Родительская таблица** - [mp_db.paid_storage](#mp_db.paid_storage)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - nmId, date
 
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|date|[date](#date)|Date(10,notnull)|-|
+|2|nmId|[nmId](#nmId)|Int32(10,notnull)|-|
+|3|sum_warehousePric|[sum_warehousePric](#sum_warehousePric)|Float64(22,notnull)|sum|
+|4|sum_barcodesCount|[sum_barcodesCount](#sum_barcodesCount)|Float64(22,notnull)|sum|
 
+### mp_db.plan_fact_current
+**Родительская таблица** - [mp_db.product_plan](#mp_db.product_plan)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - нет\
+**Дополнительные условия** - В таблице содержатся данные у которых месяц и год совпадает с текущим
 
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|supplier_sku|[supplier_sku](#supplier_sku)|String(notnull)|-|
+|2|wb_sku|[wb_sku](#wb_sku)|Int32(10,notnull)|-|
+|3|month|[month](#month)|Date(10,notnull)|-|
+|4|monthly_plan|[monthly_plan](#monthly_plan)|Float64(22,notnull)|-|
 
+### mp_db.sales_detail_report_summary
+**Родительская таблица** - [mp_db.sales_detail_report_stat](#mp_db.sales_detail_report_stat)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - Дата продажи, nm_id, sa_name\
+**Дополнительные условия** - В таблице содержатся данные у которых поле supplier_oper_name = Продажа
+
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|Артикул ВБ|[Артикул ВБ](#Артикул ВБ)|Int32(10,notnull)|-|
+|2|Артикул продовца|[Артикул продовца](#Артикул продовца)|String(notnull)|-|
+|3|Дата продажи|[Дата продажи](#Дата продажи)|Date(10,notnull)|-|
+|4|Количество|[Количество](#Количество)|Float64(22,notnull)|sum|
+|5|Цена до скидок|[Цена до скидок](#Цена до скидок)|Float64(22,notnull)|sum|
+|6|Цена (со скидкой продавцадо СПП)|[Цена (со скидкой продавцадо СПП)](#Цена (со скидкой продавцадо СПП))|Float64(22,notnull)|sum|
+|7|Логистика|[Логистика](#Логистика)|Float64(22,notnull)|sum|
+|8|Комиссия ВБ|[Комиссия ВБ](#Комиссия ВБ)|Float64(22,notnull)|sum|
+|9|Штрафы|[Штрафы](#Штрафы)|Float64(22,notnull)|sum|
+|10|Платная премка|[Платная премка](#Платная премка)|Float64(22,notnull)|sum|
+
+### mp_db.sales_stat_summary
+**Родительская таблица** - [mp_db.sales_stat](#mp_db.sales_stat)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - nmid_sales, date_sales\
+**Дополнительные условия** - нет
+
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|nmid_sales|[nmid_sales](#nmid_sales)|Int32(10,notnull)|-|
+|2|date_sales|[date_sales](#date_sales)|Date(10,notnull)|-|
+|3|total_count_sales|[total_count_sales](#total_count_sales)|UInt64(20,notnull)|count|
+|4|sum_totalprice_sales|[sum_totalprice_sales](#sum_totalprice_sales)|Float64(22,notnull)|sum|
+|5|sum_discountpercent_sales|[sum_discountpercent_sales](#sum_discountpercent_sales)|Int64(19,notnull)|sum|
+|6|sum_spp_sales|[sum_spp_sales](#sum_spp_sales)|Float64(22,notnull)|sum|
+|7|sum_forpay_sales|[sum_forpay_sales](#sum_forpay_sales)|Float64(22,notnull)|sum|
+|8|sum_finishedprice_sales|[sum_finishedprice_sales](#sum_finishedprice_sales)|Float64(22,notnull)|sum|
+|9|sum_pricewithdisc_sales|[sum_pricewithdisc_sales](#sum_pricewithdisc_sales)|Float64(22,notnull)|sum|
+
+### mp_db.stock_size
+**Родительская таблица** - [mp_db.stocks_stat](#mp_db.stocks_stat)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - нет\
+**Дополнительные условия** - нет
+
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|warehouseName|[warehouseName](#warehouseName)|Int32(10,notnull)|-|
+|2|nmId|[nmId](#nmId)|String(notnull)|-|
+|3|techSize|[techSize](#techSize)|Int32(10,notnull)|-|
+|4|quantity|[quantity](#quantity)|String(notnull)|-|
+
+### mp_db.stocks_stat_new
+**Родительская таблица** - [mp_db.sales_sta](#mp_db.sales_stat)t\
+**Присоединяемые таблицы** - инер джоин [mp_db.stocks_stat](#mp_db.stocks_stat) \
+(s.nmId = st.nmId) AND (s.warehouseName = st.warehouseName)\
+левый джоин cr - ([mp_db.orders_stat](#mp_db.orders_stat) + [mp_db.sales_stat](#mp_db.sales_stat))\
+(cr.nmId = s.nmId) AND (cr.warehouseName = s.warehouseName) AND (cr.date = toDate(s.date)) AND (cr.supplierArticle = s.supplierArticle)\
+**Группировка по полям** - s.date, s.warehouseName, s.nmId, s.supplierArticle, cr.totalOrders, cr.totalSales\
+**Дополнительные условия** - нет
+
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|Дата|[Дата](#Дата)|Nullable(10,null)|-|
+|2|Склад|[Склад](#Склад)|Nullable(null)|-|
+|3|s.nmId|[s.nmId](#s.nmId)|Nullable(10,null)|-|
+|4|Количество Продаж Всего|[Количество Продаж Всего](#Количество Продаж Всего)|Nullable(20,null)|count|
+|5|Сумма Продаж По PriceWithDisc|[Сумма Продаж По PriceWithDisc](#Сумма Продаж По PriceWithDisc)|Nullable(22,null)|sum|
+|6|Количество Остатков|[Количество Остатков](#Количество Остатков)|Nullable(10,null)|max|
+|7|Количество Товаров В Пути К Клиент|[Количество Товаров В Пути К Клиент](#Количество Товаров В Пути К Клиент)|Nullable(10,null)|max|
+|8|s.supplierArticle|[s.supplierArticle](#s.supplierArticle)|Nullable(null)|-|
+|9|Общее Количество Заказов|[Общее Количество Заказов](#Общее Количество Заказов)|Nullable(20,null)|-|
+|10|Общее Количество Продаж|[Общее Количество Продаж](#Общее Количество Продаж)|Nullable(20,null)|-|
+
+### mp_db.unitka
+**Родительская таблица** - [mp_db.sales_detail_report_summary](#mp_db.sales_detail_report_summary)\
+**Присоединяемые таблицы** - полный джоин [mp_db.ads_stat_summary](#mp_db.ads_stat_summary\)\
+(sdrs.Дата продажи = ass.date_ads) AND (sdrs.Артикул ВБ = ass.nmid_ads)\
+ полный джоин [mp_db.paid_storage_summary](#mp_db.paid_storage_summary)\
+(sdrs.Дата продажи = pss.date) AND (sdrs.Артикул ВБ = pss.nmId)\
+ полный джоин [mp_db.cost_price](#mp_db.cost_price)\
+(cp.nmID = sdrs.Артикул ВБ)\
+ полный джоин [mp_db.sales_stat_summary](#mp_db.sales_stat_summary)\
+(sss.nmid_sales = sdrs.Артикул ВБ) AND (sdrs.Дата продажи = sss.date_sales)\
+**Группировка по полям** - нет\
+**Дополнительные условия** - нет
+
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|sdrs.Артикул ВБ|[sdrs.Артикул ВБ](#sdrs.Артикул ВБ)|Nullable(10,null)|-|
+|2|sdrs.Артикул продовца|[sdrs.Артикул продовца](#sdrs.Артикул продовца)|Nullable(null)|-|
+|3|sdrs.Дата продажи|[sdrs.Дата продажи](#sdrs.Дата продажи)|Nullable(10,null)|-|
+|4|sdrs.Количество|[sdrs.Количество](#sdrs.Количество)|Nullable(22,null)|-|
+|5|sdrs.Цена до скидок|[sdrs.Цена до скидок](#sdrs.Цена до скидок)|Nullable(22,null)|-|
+|6|sdrs.Цена (со скидкой продавцадо СПП)|[sdrs.Цена (со скидкой продавцадо СПП)](#sdrs.Цена (со скидкой продавцадо СПП))|Nullable(22,null)|-|
+|7|sdrs.Логистика|[sdrs.Логистика](#sdrs.Логистика)|Nullable(22,null)|-|
+|8|sdrs.Комиссия ВБ|[sdrs.Комиссия ВБ](#sdrs.Комиссия ВБ)|Nullable(22,null)|-|
+|9|sdrs.Штрафы|[sdrs.Штрафы](#sdrs.Штрафы)|Nullable(22,null)|-|
+|10|sdrs.Платная премка|[sdrs.Платная премка](#sdrs.Платная премка)|Nullable(22,null)|-|
+|11|ass.date_ads|[ass.date_ads](#ass.date_ads)|Nullable(10,null)|-|
+|12|ass.nmid_ads|[ass.nmid_ads](#ass.nmid_ads)|Nullable(10,null)|-|
+|13|ass.views_ads|[ass.views_ads](#ass.views_ads)|Nullable(19,null)|-|
+|14|ass.clicks_ads|[ass.clicks_ads](#ass.clicks_ads)|Nullable(19,null)|-|
+|15|ass.sum_ads|[ass.sum_ads](#ass.sum_ads)|Nullable(22,null)|-|
+|16|ass.atbs_ads|[ass.atbs_ads](#ass.atbs_ads)|Nullable(19,null)|-|
+|17|ass.orders_ads|[ass.orders_ads](#ass.orders_ads)|Nullable(19,null)|-|
+|18|ass.shks_ads|[ass.shks_ads](#ass.shks_ads)|Nullable(19,null)|-|
+|19|ass.sum_price_ads|[ass.sum_price_ads](#ass.sum_price_ads)|Nullable(22,null)|-|
+|20|pss.date|[pss.date](#pss.date)|Nullable(10,null)|-|
+|21|pss.nmId|[pss.nmId](#pss.nmId)|Nullable(10,null)|-|
+|22|pss.sum_warehousePric|[pss.sum_warehousePric](#pss.sum_warehousePric)|Nullable(22,null)|-|
+|23|pss.sum_barcodesCount|[pss.sum_barcodesCount](#pss.sum_barcodesCount)|Nullable(22,null)|-|
+|24|cp.nmID|[cp.nmID](#cp.nmID)|Nullable(10,null)|-|
+|25|cp.cost|[cp.cost](#cp.cost)|Nullable(22,null)|-|   
 
 
 
