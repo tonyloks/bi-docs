@@ -305,12 +305,73 @@ wb_sku = nmid_orders\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - nmID, dt, imtName
 
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|nmID_KT|[nmID_KT](#nmID_KT)|Int32(10,notnull)|-|
+|2|date_kt|[date_kt](#date_kt)|Date(10,notnull)|-|
+|3|itemname_kt|[itemname_kt](#itemname_kt)|String(notnull)|-|
+|4|sum_opencardcount_kt|[itemname_kt](#itemname_kt)|Int64(19,notnull)|sum|
+|5|sum_addtocartcount_kt|[sum_addtocartcount_kt](#sum_addtocartcount_kt)|Int64(19,notnull)|sum|
+|6|sum_addtocartconversion_kt|[sum_addtocartconversion_kt](#sum_addtocartconversion_kt)|Float64(22,notnull)|sum|
+|7|sum_orderscount_kt|[sum_orderscount_kt](#sum_orderscount_kt)|Int64(19,notnull)|sum|
+|8|sum_orderssumrub_kt|[sum_orderssumrub_kt](#sum_orderssumrub_kt)|Float64(22,notnull)|sum|
+|9|sum_carttoorderconversion_kt|[sum_carttoorderconversion_kt](#sum_carttoorderconversion_kt)|Float64(22,notnull)|sum|
+|10|sum_buyoutscount_kt|[sum_buyoutscount_kt](#sum_buyoutscount_kt)|Int64(19,notnull)|sum|
+|11|sum_buyoutssumrub_kt|[sum_buyoutssumrub_kt](#sum_buyoutssumrub_kt)|Float64(22,notnull)|sum|
+|12|sum_buyoutpercent_kt|[sum_buyoutpercent_kt](#sum_buyoutpercent_kt)|Float64(22,notnull)|sum|
 
+### mp_db.nmid_fullstat_renamed
+**Родительская таблица** - [mp_db.kt_stat_summary](#mp_db.kt_stat_summary)\
+**Присоединяемые таблицы** - левый джоин [mp_db.orders_stat_summary](#mp_db.orders_stat_summary)\
+(k.nmID_KT = o.nmid_orders) AND (k.date_kt = o.date_orders),\
+левый джоин [mp_db.sales_stat_summary](#mp_db.sales_stat_summary)\
+(k.nmID_KT = s.nmid_sales) AND (k.date_kt = s.date_sales),\
+левый джоин [mp_db.ads_stat_summary](#mp_db.ads_stat_summary)\
+(k.nmID_KT = a.nmid_ads) AND (k.date_kt = a.date_ads)\
+левый джоин [mp_db.articleadd](#mp_db.articleadd)\
+(k.nmID_KT = art.nmId)\
+**Группировка по полям** - нет
 
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|art.supplierArticle|[art.supplierArticle](#art.supplierArticle)|Nullable(null)|-|
+|2|ID карточки|[ID карточки](#ID карточки)|Int32(10,notnull)|-|
+|3|Дата|[Дата](#Дата)|Date(10,notnull)|-|
+|4|Название товара|[Название товара](#Название товара)|String(notnull)|-|
+|5|Переходы в карточку (КТ)|[Переходы в карточку (КТ)](#Переходы в карточку (КТ))|Int64(19,notnull)|-|
+|6|Положили в корзину (КТ)|[Положили в корзину (КТ)](#Положили в корзину (КТ))|Int64(19,notnull)|-|
+|7|Заказали товаров шт. (КТ)|[Заказали товаров шт. (КТ)](#Заказали товаров шт. (КТ))|Int64(19,notnull)|-|
+|8|Заказали на сумму  руб. (КТ)|[Заказали на сумму  руб. (КТ)](#Заказали на сумму  руб. (КТ))|Float64(22,notnull)|-|
+|9|Выкупили товаров шт. (КТ)|[Выкупили товаров шт. (КТ)](#Выкупили товаров шт. (КТ))|Int64(19,notnull)|-|
+|10|Выкупили на сумму руб. (КТ)|[Выкупили на сумму руб. (КТ)](#Выкупили на сумму руб. (КТ))|Float64(22,notnull)|-|
+|11|Количество заказов шт. (З)|[Количество заказов шт. (З)](#Количество заказов шт. (З))|Nullable(20,null)|-|
+|12|Отмененный закаказов шт. (З)|[Отмененный закаказов шт. (З)](#Отмененный закаказов шт. (З))|Nullable(20,null)|-|
+|13|Выкупленных заказов шт. (З)|[Выкупленных заказов шт. (З)](#Выкупленных заказов шт. (З))|Nullable(20,null)|-|
+|14|Сумма заказов руб. (З)|[Сумма заказов руб. (З)](#Сумма заказов руб. (З))|Nullable(22,null)|-|
+|15|Фактическая цена руб. (З)|[Фактическая цена руб. (З)](#Фактическая цена руб. (З))|Nullable(22,null)|-|
+|16|Цена со скидкой продавца руб. (З)|[Цена со скидкой продавца руб. (З)](#Цена со скидкой продавца руб. (З))|Nullable(22,null)|-|
+|17|Количество продаж шт. (П)|[Количество продаж шт. (П)](#Количество продаж шт. (П))|Nullable(20,null)|-|
+|18|Сумма продаж руб. (П)|[Сумма продаж руб. (П)](#Сумма продаж руб. (П))|Nullable(22,null)|-|
+|19|К перечислению руб. (П)|[К перечислению руб. (П)](#К перечислению руб. (П))|Nullable(22,null)|-|
+|20|Фактическая цена руб. (П)|[Фактическая цена руб. (П)](#Фактическая цена руб. (П))|Nullable(22,null)|-|
+|21|Цена со скидкой продавца руб. (П)|[Цена со скидкой продавца руб. (П)](#Цена со скидкой продавца руб. (П))|Nullable(22,null)|-|
+|22|Показы (Р)|[Показы (Р)](#Показы (Р))|Nullable(19,null)|-|
+|23|Клики (Р)|[Клики (Р)](#Клики (Р))|Nullable(19,null)|-|
+|24|Расход руб. (Р)|[Расход руб. (Р)](#Расход руб. (Р))|Nullable(22,null)|-|
+|25|Положили в корзину шт. (Р)|[Положили в корзину шт. (Р)](#Положили в корзину шт. (Р))|Nullable(19,null)|-|
+|26|Количество заказов шт. (Р)|[Количество заказов шт. (Р)](#Количество заказов шт. (Р))|Nullable(19,null)|-|
+|27|Кол-во заказанных товаров шт. (Р)|[Кол-во заказанных товаров шт. (Р)](#Кол-во заказанных товаров шт. (Р))|Nullable(19,null)|-|
+|28|Сумма заказов руб. (Р)|[Сумма заказов руб. (Р)](#Сумма заказов руб. (Р))|Nullable(22,null)|-|
 
+### mp_db.order_current
+**Родительская таблица** - [mp_db.orders_stat_summary](#mp_db.orders_stat_summary)
+**Присоединяемые таблицы** - нет
+**Группировка по полям** - nmid_orders
 
-
-
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|nmid_orders|[nmid_orders](#nmid_orders)|Int32(10,notnull)|-|
+|2|sum(total_count_orders)|[sum(total_count_orders)](#sum(total_count_orders))|UInt64(20,notnull)|sum|
 
 
 
