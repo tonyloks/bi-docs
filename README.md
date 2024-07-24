@@ -258,8 +258,22 @@ wb_sku = nmid_orders\
 | 39 | sdrs.Цена до скидок | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka)) |
 
 ## 2. Представления
+### mp_db.ads_stat_summary
+**Родительская таблица** - [mp_db.advert_stats](#mp_db.advert_stats)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - date_ads, nmId
 
-
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|date_ads|[date_ads](#date_ads)|Date(10,notnull)|-|
+|2|nmid_ads|[nmid_ads](#nmid_ads)|Int32(10,notnull)|-|
+|3|views_ads|[views_ads](#views_ads)|Int64(19,notnull)|sum|
+|4|clicks_ads|[nmid_ads](#nmid_ads)|Int64(19,notnull)|sum|
+|5|sum_ads|[views_ads](#views_ads)|Float64(22,notnull)|sum|
+|6|atbs_ads|[nmid_ads](#nmid_ads)|Int64(19,notnull)|sum|
+|7|orders_ads|[views_ads](#views_ads)|Int64(19,notnull)|sum|
+|8|shks_ads|[nmid_ads](#nmid_ads)|Int64(19,notnull)|sum|
+|9|sum_price_ads|[views_ads](#views_ads)|Float64(22,notnull)|sum|
 
 
 
