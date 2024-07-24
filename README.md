@@ -285,9 +285,25 @@ wb_sku = nmid_orders\
 |1|nmid_ads|[nmid_ads](#nmid_ads)|Int32(10,notnull)|-|
 |2|supplierArticle|[supplierArticle](#supplierArticle)|String(notnull)|-|
 
+### mp_db.execute_plan
+**Родительская таблица** - [mp_db.plan_fact_current](#mp_db.plan_fact_current)\
+**Присоединяемые таблицы** - левый джоин [mp_db.order_current](#mp_db.order_current)\
+(pfc.wb_sku = oc.nmid_orders)\
+**Группировка по полям** - нет
 
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|supplier_sku|[supplier_sku](#supplier_sku)|String(notnull)|-|
+|2|wb_sku|[wb_sku](#wb_sku)|Int32(10,notnull)|-|
+|3|month|[month](#month)|Date(10,notnull)|-|
+|4|monthly_plan|[monthly_plan](#monthly_plan)|Float64(22,notnull)|-|
+|5|nmid_orders|[nmid_orders](#nmid_orders)|Int32(10,notnull)|-|
+|6|sum(total_count_orders)|[sum(total_count_orders)](#sum(total_count_orders))|UInt64(20,notnull)|-|
 
-
+### mp_db.kt_stat_summary
+**Родительская таблица** - [mp_db.kt_stats](#mp_db.kt_stats)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - nmID, dt, imtName
 
 
 
