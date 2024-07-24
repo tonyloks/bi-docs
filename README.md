@@ -16,34 +16,34 @@ password: 12345m678\
 1. [Юнит экономика](#Юнит_экономика).
   # 2. Представления
 Список представлений:
-1. mp_db.ads_stat_summary;
-1. mp_db.articleadd;
-1. mp_db.execute_plan;
-1. mp_db.kt_stat_summary;
-1. mp_db.nmid_fullstat_renamed;
-1. mp_db.order_current;
-1. mp_db.orders_stat_summary;
-1. mp_db.paid_storage_summary;
-1. mp_db.plan_fact_current;
-1. mp_db.sales_detail_report_summary;
-1. mp_db.sales_stat_summary;
-1. mp_db.stock_size;
-1. mp_db.stocks_stat_new;
-1. mp_db.unitka.
+1. [mp_db.ads_stat_summary](#mp_db.ads_stat_summary);
+1. [mp_db.articleadd](#mp_db.articleadd);
+1. [mp_db.execute_plan](#mp_db.execute_plan);
+1. [mp_db.kt_stat_summary](#mp_db.kt_stat_summary);
+1. [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed);
+1. [mp_db.order_current](#mp_db.order_current);
+1. [mp_db.orders_stat_summary](#mp_db.orders_stat_summary);
+1. [mp_db.paid_storage_summary](#mp_db.paid_storage_summary);
+1. [mp_db.plan_fact_current](#mp_db.plan_fact_current);
+1. [mp_db.sales_detail_report_summary](#mp_db.sales_detail_report_summary);
+1. [mp_db.sales_stat_summary](#mp_db.sales_stat_summary);
+1. [mp_db.stock_size](#mp_db.stock_size);
+1. [mp_db.stocks_stat_new](#mp_db.stocks_stat_new);
+1. [mp_db.unitka](#mp_db.unitka).
  # 3. Таблицы
 Список таблиц:
-1. mp_db.ads_cost_history;
-1. mp_db.advert_stats;
-1. mp_db.cards_content;
-1. mp_db.commissions;
-1. mp_db.cost_price;
-1. mp_db.kt_stats;
-1. mp_db.orders_stat;
-1. mp_db.paid_storage;
-1. mp_db.product_plan;
-1. mp_db.sales_detail_report_stat;
-1. mp_db.sales_stat;
-1. mp_db.stocks_stat.
+1. [mp_db.ads_cost_history](#mp_db.ads_cost_history);
+1. [mp_db.advert_stats](#mp_db.advert_stats);
+1. [mp_db.cards_content](#mp_db.cards_content);
+1. [mp_db.commissions](#mp_db.commissions);
+1. [mp_db.cost_price](#mp_db.cost_price);
+1. [mp_db.kt_stats](#mp_db.kt_stats);
+1. [mp_db.orders_stat](#mp_db.orders_stat);
+1. [mp_db.paid_storage](#mp_db.paid_storage);
+1. [mp_db.product_plan](#mp_db.product_plan);
+1. [mp_db.sales_detail_report_stat](#mp_db.sales_detail_report_stat);
+1. [mp_db.sales_stat](#mp_db.sales_stat);
+1. [mp_db.stocks_stat](#mp_db.stocks_stat).
 
     ## 1. Датасеты
 
