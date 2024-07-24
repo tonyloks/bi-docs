@@ -45,19 +45,31 @@ password: 12345m678\
 1. mp_db.sales_stat;
 1. mp_db.stocks_stat.
 
+    ## 1. Датасеты
+
+### Датасет Выкупы
+**Таблица / представление** - [mp_db.kt_stats](#mp_db.kt_stats)\
+**Есть ли расчетные поля** - нет\
+**Наличие параметров** - нет\
+**Фильтрация** - нет
 
 
-
-
-
-
-
-
-
-
-
-
-
+| Номер поля | Поле | Формула | Тип и аггрегация | Ссылка на родительскую таблицу |
+| ---------- | ---- | ---- | ---- | ---- |
+| 1 | id   | нет | Целое число / нет | [mp_db.kt_stats.id](#mp_db.kt_stats) |
+| 2 | nmID | нет | Целое число / нет | [mp_db.kt_stats.nmID](#mp_db.kt_stats) |
+| 3 | imtName   | нет | Строка / нет | [mp_db.kt_stats.imtName](#mp_db.kt_stats) |
+| 4 | vendorCode   | нет | Строка / нет | [mp_db.kt_stats.vendorCode](#mp_db.kt_stats) |
+| 5 | dt   | нет | дата и время / нет | [mp_db.kt_stats.dt](#mp_db.kt_stats) |
+| 6 | openCardCount   | нет | Целое число / нет | [mp_db.kt_stats.openCardCount](#mp_db.kt_stats) |
+| 7 | addToCartCount   | нет | Целое число / нет | [mp_db.kt_stats.addToCartCount](#mp_db.kt_stats) |
+| 8 | ordersCount   | нет | Целое число / нет | [mp_db.kt_stats.ordersCount](#mp_db.kt_stats) |
+| 9 | ordersSumRub   | нет | Дробное число / нет | [mp_db.kt_stats.ordersSumRub](#mp_db.kt_stats) |
+| 10 | buyoutsCount   | нет | Целое число / нет | [mp_db.kt_stats.buyoutsCount](#mp_db.kt_stats) |
+| 11 | buyoutsSumRub   | нет | Дробное число / нет | [mp_db.kt_stats.buyoutsSumRub](#mp_db.kt_stats) |
+| 12 | buyoutPercent   | нет | Дробное число / нет | [mp_db.kt_stats.buyoutPercent](#mp_db.kt_stats) |
+| 13 | addToCartConversion   | нет | Дробное число / нет | [mp_db.kt_stats.addToCartConversion](#mp_db.kt_stats) |
+| 14 | cartToOrderConversion   | нет | Дробное число / нет | [mp_db.kt_stats.cartToOrderConversion](#mp_db.kt_stats) |
 
 
 
