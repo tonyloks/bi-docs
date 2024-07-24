@@ -275,8 +275,15 @@ wb_sku = nmid_orders\
 |8|shks_ads|[nmid_ads](#nmid_ads)|Int64(19,notnull)|sum|
 |9|sum_price_ads|[views_ads](#views_ads)|Float64(22,notnull)|sum|
 
+### mp_db.articleadd
+**Родительская таблица** - [mp_db.sales_stat](#mp_db.sales_stat)\
+**Присоединяемые таблицы** - нет\
+**Группировка по полям** - nmId, supplierArticle
 
-
+|Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
+|:---:|:---:|:---:|:---:|:---:|
+|1|nmid_ads|[nmid_ads](#nmid_ads)|Int32(10,notnull)|-|
+|2|supplierArticle|[supplierArticle](#supplierArticle)|String(notnull)|-|
 
 
 
