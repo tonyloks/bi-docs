@@ -215,9 +215,49 @@ wb_sku = nmid_orders\
 **Наличие параметров** - (UnitType - строка - фактическая юнит экономика), (Nalog - Целое число - 1)\
 **Фильтрация** - нет
 
+| Номер поля | Поле | Формула | Тип и аггрегация | Ссылка на родительскую таблицу |
+| ---------- | ---- | ---- | ---- | ---- |
+| 1 | Комиссия ВБ | ```if [UnitType] = 'Общий отчет о продажах'    then SUM([sdrs.Комиссия ВБ]) ELSE SUM([sdrs.Комиссия ВБ]) / [sdrs.Количество] END ``` | дробное число / авто | нет |
+| 2 | Логистика   | ``` if [UnitType] = 'Общий отчет о продажах'    then SUM([sdrs.Логистика]) ELSE SUM([sdrs.Логистика]) / SUM([sdrs.Количество]) END ``` | дробное число / авто | нет |
+| 3 | Доля хранения  | ``` if [UnitType] = 'Общий отчет о продажах'    then AVG(SUM([Платное хранение]) /SUM([sdrs.Цена (со скидкой продавца, до СПП)])) ELSE AVG(SUM([Платное хранение]) / (SUM([sdrs.Цена (со скидкой продавца, до СПП)]) / SUM([sdrs.Количество]))) END ```  | дробное число / авто | нет |
+| 4 | ДРР | ``` if [UnitType] = 'Общий отчет о продажах'    then AVG(SUM([Рекламные расходы]) / SUM([sdrs.Цена (со скидкой продавца, до СПП)])) ELSE AVG(SUM([Рекламные расходы]) / (SUM([sdrs.Цена (со скидкой продавца, до СПП)]) / SUM([sdrs.Количество]))) END ```  | дробное число / авто | нет |
+| 5 | Себестоимость | ``` if [UnitType] = 'Общий отчет о продажах'    then AVG(IFNULL([cp.cost],0) * [sdrs.Количество]) ELSE AVG(IFNULL([cp.cost],0)) END ```  | дробное число / авто | нет |
+| 6 | Доля логистики  | ``` AVG(IFNULL(SUM([sdrs.Логистика] INCLUDE [sdrs.Артикул ВБ]) / SUM([sdrs.Цена (со скидкой продавца, до СПП)] INCLUDE [sdrs.Артикул ВБ]), 0)) ```  | дробное число / авто | нет |
+| 7 | Чистая прибыль  | ``` if [UnitType] = 'Общий отчет о продажах'    then AVG(SUM([sdrs.Цена (со скидкой продавца, до СПП)]) - SUM([Расходы])) ELSE AVG(((SUM([sdrs.Цена (со скидкой продавца, до СПП)])/ SUM([sdrs.Количество])) - SUM([Расходы])))  END ```  | дробное число / авто | нет |
+| 8 | Налог  | ``` if [UnitType] = 'Общий отчет о продажах'    then if [Nalog] = 1    THEN [sdrs.Цена (со скидкой продавца, до СПП)] / 100    ELSE ([sdrs.Цена (со скидкой продавца, до СПП)] / 100) * 6 ENDELSE if [Nalog] = 1    THEN ([sdrs.Цена (со скидкой продавца, до СПП)] / [sdrs.Количество]) / 100    ELSE (([sdrs.Цена (со скидкой продавца, до СПП)] / [sdrs.Количество]) / 100) * 6 END END ```  | дробное число / авто | нет |
+| 9 | Маржа | ``` if [UnitType] = 'Общий отчет о продажах'   then [Чистая прибыль] / [sdrs.Цена (со скидкой продавца, до СПП)]ELSE [Чистая прибыль] / ([sdrs.Цена (со скидкой продавца, до СПП)] / [sdrs.Количество]) END  ```  | дробное число / авто | нет |
+| 10 | ROI | ``` if [UnitType] = 'Общий отчет о продажах'    then [Чистая прибыль] / SUM(IFNULL([cp.cost], 0) * [sdrs.Количество]) ELSE [Чистая прибыль] / SUM(IFNULL([cp.cost], 0)) END ```  | дробное число / авто | нет |
+| 11 | Расходы| ``` SUM([Себестоимость])    + SUM([Логистика])    + SUM([Рекламные расходы])    + SUM([Комиссия ВБ])    + SUM([Платное хранение])    + SUM([Налог] ```  | дробное число / авто | нет |
+| 12 | Платное хранение 1 ед. | ``` IFNULL(SUM(([pss.sum_warehousePric] / [pss.sum_barcodesCount])), 0)  ```  | дробное число / авто | нет |
+| 13 | Платное хранение | ``` if [UnitType] = 'Общий отчет о продажах'    then IFNULL(SUM(([pss.sum_warehousePric] / [pss.sum_barcodesCount])), 0) * [sdrs.Количество] ELSE IFNULL(SUM(([pss.sum_warehousePric] / [pss.sum_barcodesCount])), 0) END ```  | дробное число / авто | нет |
+| 14 | Рекламные расходы | ``` if [UnitType] = 'Общий отчет о продажах'    then IFNULL([ass.sum_ads], 0) ELSE IFNULL([ass.sum_ads], 0) / [sdrs.Количество] END ```  | дробное число / авто | нет |
+| 15 | pss.sum_warehousePric | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
+| 16 | sdrs.Артикул ВБ | нет  | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 17 | sdrs.Артикул продовца | нет  | строка / нет | [mp_db.unitka](#mp_db.unitka) |
+| 18 | sdrs.Дата продажи | нет  | дата / нет | [mp_db.unitka](#mp_db.unitka) |
+| 19 | sdrs.Цена (со скидкой продавца, до СПП) | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
+| 20 | sdrs.Логистика | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
+| 21 | sdrs.Комиссия ВБ | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
+| 22 | sdrs.Штрафы | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
+| 23 | sdrs.Платная премка | нет | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
+| 24 | ass.date_ads | нет | дата / нет | [mp_db.unitka](#mp_db.unitka) |
+| 25 | ass.nmid_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 26 | ass.views_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 27 | ass.clicks_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 28 | ass.sum_ads| нет | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
+| 29 | ass.atbs_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 30 | ass.orders_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 31 | ass.shks_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 32 | ass.sum_price_ads | нет | дробное число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 33 | pss.date | нет | дата / нет | [mp_db.unitka](#mp_db.unitka) |
+| 34 | pss.nmId | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 35 | cp.nmID | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 36 | cp.cost | нет | дробное число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 37 | sdrs.Количество | нет | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
+| 38 | pss.sum_barcodesCount | нет | дробное число / нет | [mp_db.unitka](#mp_db.unitka) |
+| 39 | sdrs.Цена до скидок | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka)) |
 
-
-
+## 1. Представления
 
 
 
