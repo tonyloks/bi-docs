@@ -265,15 +265,15 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|date_ads|[date_ads](#date_ads)|Date(10,notnull)|-|
-|2|nmid_ads|[nmid_ads](#nmid_ads)|Int32(10,notnull)|-|
-|3|views_ads|[views_ads](#views_ads)|Int64(19,notnull)|sum|
-|4|clicks_ads|[nmid_ads](#nmid_ads)|Int64(19,notnull)|sum|
-|5|sum_ads|[views_ads](#views_ads)|Float64(22,notnull)|sum|
-|6|atbs_ads|[nmid_ads](#nmid_ads)|Int64(19,notnull)|sum|
-|7|orders_ads|[views_ads](#views_ads)|Int64(19,notnull)|sum|
-|8|shks_ads|[nmid_ads](#nmid_ads)|Int64(19,notnull)|sum|
-|9|sum_price_ads|[views_ads](#views_ads)|Float64(22,notnull)|sum|
+|1|date_ads|[date](#mp_db_advert_stats)|Date(10,notnull)|-|
+|2|nmid_ads|[nmId](#mp_db_advert_stats)|Int32(10,notnull)|-|
+|3|views_ads|[views](#mp_db_advert_stats)|Int64(19,notnull)|sum|
+|4|clicks_ads|[clicks](#mp_db_advert_stats)|Int64(19,notnull)|sum|
+|5|sum_ads|[sum](#mp_db_advert_stats)|Float64(22,notnull)|sum|
+|6|atbs_ads|[atbs](#mp_db_advert_stats)|Int64(19,notnull)|sum|
+|7|orders_ads|[orders](#mp_db_advert_stats)|Int64(19,notnull)|sum|
+|8|shks_ads|[shks](#mp_db_advert_stats)|Int64(19,notnull)|sum|
+|9|sum_price_ads|[sum_price](#mp_db_advert_stats)|Float64(22,notnull)|sum|
 
 ### mp_db_articleadd
 **Родительская таблица** - [mp_db.sales_stat](#mp_db_sales_stat)\
