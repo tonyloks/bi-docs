@@ -55,20 +55,20 @@ password: 12345m678\
 
 | Номер поля | Поле | Формула | Тип и аггрегация | Ссылка на родительскую таблицу |
 | ---------- | ---- | ---- | ---- | ---- |
-| 1 | id   | нет | Целое число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 2 | nmID | нет | Целое число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 3 | imtName   | нет | Строка / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 4 | vendorCode   | нет | Строка / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 5 | dt   | нет | дата и время / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 6 | openCardCount   | нет | Целое число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 7 | addToCartCount   | нет | Целое число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 8 | ordersCount   | нет | Целое число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 9 | ordersSumRub   | нет | Дробное число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 10 | buyoutsCount   | нет | Целое число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 11 | buyoutsSumRub   | нет | Дробное число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 12 | buyoutPercent   | нет | Дробное число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 13 | addToCartConversion   | нет | Дробное число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
-| 14 | cartToOrderConversion   | нет | Дробное число / нет | [mp_db.kt_stats](#mp_db.kt_stats) |
+| 1 | id   | нет | Целое число / нет | [id](#mp_db_kt_stats) |
+| 2 | nmID | нет | Целое число / нет | [nmID](#mp_db_kt_stats) |
+| 3 | imtName   | нет | Строка / нет | [imtName](#mp_db_kt_stats) |
+| 4 | vendorCode   | нет | Строка / нет | [vendorCode](#mp_db_kt_stats) |
+| 5 | dt   | нет | дата и время / нет | [dt](#mp_db_kt_stats) |
+| 6 | openCardCount   | нет | Целое число / нет | [openCardCount](#mp_db_kt_stats) |
+| 7 | addToCartCount   | нет | Целое число / нет | [addToCartCount](#mp_db_kt_stats) |
+| 8 | ordersCount   | нет | Целое число / нет | [ordersCount](#mp_db_kt_stats) |
+| 9 | ordersSumRub   | нет | Дробное число / нет | [ordersSumRub](#mp_db_kt_stats) |
+| 10 | buyoutsCount   | нет | Целое число / нет | [buyoutsCount](#mp_db_kt_stats) |
+| 11 | buyoutsSumRub   | нет | Дробное число / нет | [buyoutsSumRub](#mp_db_kt_stats) |
+| 12 | buyoutPercent   | нет | Дробное число / нет | [buyoutPercent](#mp_db_kt_stats) |
+| 13 | addToCartConversion   | нет | Дробное число / нет | [addToCartConversion](#mp_db_kt_stats) |
+| 14 | cartToOrderConversion   | нет | Дробное число / нет | [cartToOrderConversion](#mp_db_kt_stats) |
 
 
 ### Основной_датасет
