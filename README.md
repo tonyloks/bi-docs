@@ -370,8 +370,8 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|nmid_orders|[nmid_orders](#nmid_orders)|Int32(10,notnull)|-|
-|2|sum(total_count_orders)|[sum(total_count_orders)](#sum(total_count_orders))|UInt64(20,notnull)|sum|
+|1|nmid_orders|[nmid_orders](#mp_db_orders_stat_summary)|Int32(10,notnull)|-|
+|2|sum(total_count_orders)|[sum(total_count_orders)](#mp_db_orders_stat_summary)|UInt64(20,notnull)|sum|
 
 ### mp_db_orders_stat_summary
 **Родительская таблица** - [mp_db.orders_stat](#mp_db_orders_stat)\
@@ -380,15 +380,15 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|nmid_orders|[nmid_orders](#nmid_orders)|Int32(10,notnull)|-|
-|2|date_orders|[date_orders](#date_orders)|Date(10,notnull)|-|
-|3|total_count_orders|[total_count_orders](#total_count_orders)|UInt64(20,notnull)|count|
-|4|cancelled_count_orders|[cancelled_count_orders](#cancelled_count_orders)|UInt64(20,notnull)|countIf(orders_stat.isCancel = 1)|
-|5|not_cancelled_count_orders|[not_cancelled_count_orders](#not_cancelled_count_orders)|UInt64(20,notnull)|countIf(orders_stat.isCancel = 0)|
-|6|sum_totalprice_orders|[sum_totalprice_orders](#sum_totalprice_orders)|Float64(22,notnull)|sum|
-|7|sum_spp_orders|[sum_spp_orders](#sum_spp_orders)|Float64(22,notnull)|sum|
-|8|sum_finishedprice_orders|[sum_finishedprice_orders](#sum_finishedprice_orders)|Float64(22,notnull)|sum|
-|9|sum_pricewithdisc_orders|[sum_pricewithdisc_orders](#sum_pricewithdisc_orders)|Float64(22,notnull)|sum|
+|1|nmid_orders|[nmId](#mp_db_orders_stat)|Int32(10,notnull)|-|
+|2|date_orders|[date](#mp_db_orders_stat)|Date(10,notnull)|-|
+|3|total_count_orders|[count](#mp_db_orders_stat)|UInt64(20,notnull)|count|
+|4|cancelled_count_orders|[isCancel = 1](#mp_db_orders_stat)|UInt64(20,notnull)|countIf(orders_stat.isCancel = 1)|
+|5|not_cancelled_count_orders|[isCancel = 0](#mp_db_orders_stat)|UInt64(20,notnull)|countIf(orders_stat.isCancel = 0)|
+|6|sum_totalprice_orders|[totalPrice](#mp_db_orders_stat)|Float64(22,notnull)|sum|
+|7|sum_spp_orders|[spp](#mp_db_orders_stat)|Float64(22,notnull)|sum|
+|8|sum_finishedprice_orders |[finishedPrice](#mp_db_orders_stat)|Float64(22,notnull)|sum|
+|9|sum_pricewithdisc_orders|[priceWithDisc](#mp_db_orders_stat)|Float64(22,notnull)|sum|
 
 ### mp_db_paid_storage_summary
 **Родительская таблица** - [mp_db.paid_storage](#mp_db_paid_storage)\
@@ -397,10 +397,10 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|date|[date](#date)|Date(10,notnull)|-|
-|2|nmId|[nmId](#nmId)|Int32(10,notnull)|-|
-|3|sum_warehousePric|[sum_warehousePric](#sum_warehousePric)|Float64(22,notnull)|sum|
-|4|sum_barcodesCount|[sum_barcodesCount](#sum_barcodesCount)|Float64(22,notnull)|sum|
+|1|date|[date](#mp_db_paid_storage)|Date(10,notnull)|-|
+|2|nmId|[nmId](#mp_db_paid_storage)|Int32(10,notnull)|-|
+|3|sum_warehousePric|[warehousePrice](#mp_db_paid_storage)|Float64(22,notnull)|sum|
+|4|sum_barcodesCount|[barcodesCount](#mp_db_paid_storaget)|Float64(22,notnull)|sum|
 
 ### mp_db_plan_fact_current
 **Родительская таблица** - [mp_db.product_plan](#mp_db_product_plan)\
@@ -410,10 +410,10 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|supplier_sku|[supplier_sku](#supplier_sku)|String(notnull)|-|
-|2|wb_sku|[wb_sku](#wb_sku)|Int32(10,notnull)|-|
-|3|month|[month](#month)|Date(10,notnull)|-|
-|4|monthly_plan|[monthly_plan](#monthly_plan)|Float64(22,notnull)|-|
+|1|supplier_sku|[supplier_sku](#mp_db_product_plan)|String(notnull)|-|
+|2|wb_sku|[wb_sku](#mp_db_product_plan)|Int32(10,notnull)|-|
+|3|month|[month](#mp_db_product_plan)|Date(10,notnull)|-|
+|4|monthly_plan|[monthly_plan](#mp_db_product_plan)|Float64(22,notnull)|-|
 
 ### mp_db_sales_detail_report_summary
 **Родительская таблица** - [mp_db.sales_detail_report_stat](#mp_db_sales_detail_report_stat)\
@@ -423,16 +423,16 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|Артикул ВБ|[Артикул ВБ](#Артикул ВБ)|Int32(10,notnull)|-|
-|2|Артикул продовца|[Артикул продовца](#Артикул продовца)|String(notnull)|-|
-|3|Дата продажи|[Дата продажи](#Дата продажи)|Date(10,notnull)|-|
-|4|Количество|[Количество](#Количество)|Float64(22,notnull)|sum|
-|5|Цена до скидок|[Цена до скидок](#Цена до скидок)|Float64(22,notnull)|sum|
-|6|Цена (со скидкой продавцадо СПП)|[Цена (со скидкой продавцадо СПП)](#Цена (со скидкой продавцадо СПП))|Float64(22,notnull)|sum|
-|7|Логистика|[Логистика](#Логистика)|Float64(22,notnull)|sum|
-|8|Комиссия ВБ|[Комиссия ВБ](#Комиссия ВБ)|Float64(22,notnull)|sum|
-|9|Штрафы|[Штрафы](#Штрафы)|Float64(22,notnull)|sum|
-|10|Платная премка|[Платная премка](#Платная премка)|Float64(22,notnull)|sum|
+|1|Артикул ВБ|[nm_id ](#mp_db_sales_detail_report_stat)|Int32(10,notnull)|-|
+|2|Артикул продовца|[sa_name](#mp_db_sales_detail_report_stat)|String(notnull)|-|
+|3|Дата продажи|[sale_dt](#mp_db_sales_detail_report_stat)|Date(10,notnull)|-|
+|4|Количество|[quantity - return_amount](#mp_db_sales_detail_report_stat)|Float64(22,notnull)|sum|
+|5|Цена до скидок|[retail_price](#mp_db_sales_detail_report_stat)|Float64(22,notnull)|sum|
+|6|Цена (со скидкой продавцадо СПП)|[(retail_price_withdisc_rub * quantity) - (retail_price_withdisc_rub * return_amount)](#mp_db_sales_detail_report_stat)|Float64(22,notnull)|sum|
+|7|Логистика|[delivery_rub](#mp_db_sales_detail_report_stat)|Float64(22,notnull)|sum|
+|8|Комиссия ВБ|[retail_price_withdisc_rub * (commission_percent / 100)](#mp_db_sales_detail_report_stat)|Float64(22,notnull)|sum|
+|9|Штрафы|[penalty](#mp_db_sales_detail_report_stat)|Float64(22,notnull)|sum|
+|10|Платная премка|[acceptance](#mp_db_sales_detail_report_stat)|Float64(22,notnull)|sum|
 
 ### mp_db_sales_stat_summary
 **Родительская таблица** - [mp_db.sales_stat](#mp_db_sales_stat)\
@@ -442,15 +442,15 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|nmid_sales|[nmid_sales](#nmid_sales)|Int32(10,notnull)|-|
-|2|date_sales|[date_sales](#date_sales)|Date(10,notnull)|-|
-|3|total_count_sales|[total_count_sales](#total_count_sales)|UInt64(20,notnull)|count|
-|4|sum_totalprice_sales|[sum_totalprice_sales](#sum_totalprice_sales)|Float64(22,notnull)|sum|
-|5|sum_discountpercent_sales|[sum_discountpercent_sales](#sum_discountpercent_sales)|Int64(19,notnull)|sum|
-|6|sum_spp_sales|[sum_spp_sales](#sum_spp_sales)|Float64(22,notnull)|sum|
-|7|sum_forpay_sales|[sum_forpay_sales](#sum_forpay_sales)|Float64(22,notnull)|sum|
-|8|sum_finishedprice_sales|[sum_finishedprice_sales](#sum_finishedprice_sales)|Float64(22,notnull)|sum|
-|9|sum_pricewithdisc_sales|[sum_pricewithdisc_sales](#sum_pricewithdisc_sales)|Float64(22,notnull)|sum|
+|1|nmid_sales|[nmId](#mp_db_sales_stat)|Int32(10,notnull)|-|
+|2|date_sales|[date](#mp_db_sales_stat)|Date(10,notnull)|-|
+|3|total_count_sales|[count](#mp_db_sales_stat)|UInt64(20,notnull)|count|
+|4|sum_totalprice_sales|[totalPrice](#mp_db_sales_stat)|Float64(22,notnull)|sum|
+|5|sum_discountpercent_sales|[discountPercent](#mp_db_sales_stat)|Int64(19,notnull)|sum|
+|6|sum_spp_sales|[spp](#mp_db_sales_stat)|Float64(22,notnull)|sum|
+|7|sum_forpay_sales|[forPay](#mp_db_sales_stat)|Float64(22,notnull)|sum|
+|8|sum_finishedprice_sales|[finishedPrice](#mp_db_sales_stat)|Float64(22,notnull)|sum|
+|9|sum_pricewithdisc_sales|[priceWithDisc](#mp_db_sales_stat)|Float64(22,notnull)|sum|
 
 ### mp_db_stock_size
 **Родительская таблица** - [mp_db.stocks_stat](#mp_db_stocks_stat)\
@@ -460,10 +460,10 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|warehouseName|[warehouseName](#warehouseName)|Int32(10,notnull)|-|
-|2|nmId|[nmId](#nmId)|String(notnull)|-|
-|3|techSize|[techSize](#techSize)|Int32(10,notnull)|-|
-|4|quantity|[quantity](#quantity)|String(notnull)|-|
+|1|warehouseName|[warehouseName](#mp_db_stocks_stat)|Int32(10,notnull)|-|
+|2|nmId|[nmId](#mp_db_stocks_stat)|String(notnull)|-|
+|3|techSize|[techSize](#mp_db_stocks_stat)|Int32(10,notnull)|-|
+|4|quantity|[quantity](#qmp_db_stocks_stat)|String(notnull)|-|
 
 ### mp_db_stocks_stat_new
 **Родительская таблица** - [mp_db.sales_sta](#mp_db_sales_stat)t\
@@ -476,16 +476,16 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|Дата|[Дата](#Дата)|Date(10,null)|-|
-|2|Склад|[Склад](#Склад)|String(null)|-|
-|3|s.nmId|[s.nmId](#s.nmId)|Int32(10,null)|-|
-|4|Количество Продаж Всего|[Количество Продаж Всего](#Количество Продаж Всего)|UInt64(20,null)|count|
-|5|Сумма Продаж По PriceWithDisc|[Сумма Продаж По PriceWithDisc](#Сумма Продаж По PriceWithDisc)|Float64(22,null)|sum|
-|6|Количество Остатков|[Количество Остатков](#Количество Остатков)|Int32(10,null)|max|
-|7|Количество Товаров В Пути К Клиент|[Количество Товаров В Пути К Клиент](#Количество Товаров В Пути К Клиент)|Int32(10,null)|max|
-|8|s.supplierArticle|[s.supplierArticle](#s.supplierArticle)|String(null)|-|
-|9|Общее Количество Заказов|[Общее Количество Заказов](#Общее Количество Заказов)|UInt64(20,null)|-|
-|10|Общее Количество Продаж|[Общее Количество Продаж](#Общее Количество Продаж)|UInt64(20,null)|-|
+|1|Дата|[date](#mp_db_sales_stat)|Date(10,null)|-|
+|2|Склад|[warehouseName](#mp_db_sales_stat)|String(null)|-|
+|3|s.nmId|[nmId](#mp_db_sales_stat)|Int32(10,null)|-|
+|4|Количество Продаж Всего|[nmId](#mp_db_sales_stat)|UInt64(20,null)|count|
+|5|Сумма Продаж По PriceWithDisc|[priceWithDisc](#mp_db_sales_stat)|Float64(22,null)|sum|
+|6|Количество Остатков|[quantity](#mp_db_stocks_stat)|Int32(10,null)|max|
+|7|Количество Товаров В Пути К Клиент|[inWayToClient](#mp_db_stocks_stat)|Int32(10,null)|max|
+|8|s.supplierArticle|[supplierArticle](#mp_db_sales_stat)|String(null)|-|
+|9|Общее Количество Заказов|[totalOrders](#cr)|UInt64(20,null)|-|
+|10|Общее Количество Продаж|[totalSales](#cr)|UInt64(20,null)|-|
 
 ### mp_db_unitka
 **Родительская таблица** - [mp_db.sales_detail_report_summary](#mp_db_sales_detail_report_summary)\
