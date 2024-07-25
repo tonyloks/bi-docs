@@ -101,34 +101,34 @@ password: 12345m678\
 | 20 |  CTR, %  | ``` IF [Показы (Р)] != 0   THEN [Клики (Р)]/[Показы (Р)] ELSE NULL END ```  | дробное число / авто | нет |
 | 21 |  Скалированная дата | ``` IF [scale_date] = 'День'     then [Дата] ELSEIF [scale_date] = 'Неделя'     then DATETRUNC([Дата],'week') ELSEIF [scale_date] = 'Месяц'     then DATETRUNC([Дата],'month') ELSEIF [scale_date] = 'Квартал'     then DATETRUNC([Дата],'quarter') ELSEIF [scale_date] = 'Год'     then DATETRUNC([Дата],'year') END  ```  | дата / нет | нет |
 | 22 |   Выкуп, % | ``` if [Заказали товаров, шт. (КТ)] != 0     then sum([Выкупили товаров, шт. (КТ)] BEFORE FILTER BY [Дата]) / sum([Заказали товаров, шт. (КТ)] BEFORE FILTER BY [Дата]) else   NULL     end ```  | дробное число / авто | нет |
-| 23 |   art.supplierArticle | нет | строка / нет | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 24 |  ID карточки  | нет | целое число / нет | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 25 |  Дата  | нет | дата / нет | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 26 |  Название товара  | нет | строка / нет | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 27 |   Переходы в карточку (КТ) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 28 |   Положили в корзину (КТ) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 29 |   Заказали товаров, шт. (КТ) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 30 |   Заказали на сумму, руб. (КТ) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 31 |   Выкупили товаров, шт. (КТ) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 32 |   Выкупили на сумму, руб. (КТ) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 33 |   Количество заказов, шт. (З) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 34 |   Отмененный закаказов, шт. (З) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 35 |   Выкупленных заказов, шт. (З) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 36 |   Сумма заказов, руб. (З) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 37 |   Фактическая цена, руб. (З) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 38 |   Цена со скидкой продавца, руб. (З) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 39 |   Количество продаж, шт. (П) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 40 |   Сумма продаж, руб. (П) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 41 |   К перечислению, руб. (П) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 42 |   Фактическая цена, руб. (П) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 43 |   Цена со скидкой продавца, руб. (П) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 44 |   Показы (Р) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 45 |   Клики (Р) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 46 |   Расход, руб. (Р) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 47 |   Положили в корзину, шт. (Р) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 48 |   Количество заказов, шт. (Р) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 49 |   Кол-во заказанных товаров, шт. (Р) | нет | целое число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
-| 50 |   Сумма заказов, руб. (Р) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
+| 23 |   art.supplierArticle | нет | строка / нет | [art.supplierArticle](#mp_db_nmid_fullstat_renamed) |
+| 24 |  ID карточки  | нет | целое число / нет | [ID карточки](#mp_db_nmid_fullstat_renamed) |
+| 25 |  Дата  | нет | дата / нет | [Дата](#mp_db_nmid_fullstat_renamed) |
+| 26 |  Название товара  | нет | строка / нет | [Название товара ](#mp_db_nmid_fullstat_renamed) |
+| 27 |   Переходы в карточку (КТ) | нет | целое число / сумма | [Переходы в карточку (КТ)](#mp_db_nmid_fullstat_renamed) |
+| 28 |   Положили в корзину (КТ) | нет | целое число / сумма | [Положили в корзину (КТ)](#mp_db_nmid_fullstat_renamed) |
+| 29 |   Заказали товаров, шт. (КТ) | нет | целое число / сумма | [Заказали товаров, шт. (КТ)](#mp_db_nmid_fullstat_renamed) |
+| 30 |   Заказали на сумму, руб. (КТ) | нет | целое число / сумма | [Заказали на сумму, руб. (КТ)](#mp_db_nmid_fullstat_renamed) |
+| 31 |   Выкупили товаров, шт. (КТ) | нет | целое число / сумма | [Выкупили товаров, шт. (КТ)](#mp_db_nmid_fullstat_renamed) |
+| 32 |   Выкупили на сумму, руб. (КТ) | нет | дробное число / сумма | [Выкупили на сумму, руб. (КТ)](#mp_db_nmid_fullstat_renamed) |
+| 33 |   Количество заказов, шт. (З) | нет | целое число / сумма | [Количество заказов, шт. (З)](#mp_db_nmid_fullstat_renamed) |
+| 34 |   Отмененный закаказов, шт. (З) | нет | целое число / сумма | [Отмененный закаказов, шт. (З)](#mp_db_nmid_fullstat_renamed) |
+| 35 |   Выкупленных заказов, шт. (З) | нет | целое число / сумма | [Выкупленных заказов, шт. (З)](#mp_db_nmid_fullstat_renamed) |
+| 36 |   Сумма заказов, руб. (З) | нет | дробное число / сумма | [Сумма заказов, руб. (З)](#mp_db_nmid_fullstat_renamed) |
+| 37 |   Фактическая цена, руб. (З) | нет | дробное число / сумма | [Фактическая цена, руб. (З)](#mp_db_nmid_fullstat_renamed) |
+| 38 |   Цена со скидкой продавца, руб. (З) | нет | дробное число / сумма | [Цена со скидкой продавца, руб. (З)](#mp_db_nmid_fullstat_renamed) |
+| 39 |   Количество продаж, шт. (П) | нет | целое число / сумма | [Количество продаж, шт. (П)](#mp_db_nmid_fullstat_renamed) |
+| 40 |   Сумма продаж, руб. (П) | нет | дробное число / сумма | [Сумма продаж, руб. (П)](#mp_db_nmid_fullstat_renamed) |
+| 41 |   К перечислению, руб. (П) | нет | дробное число / сумма | [К перечислению, руб. (П)](#mp_db_nmid_fullstat_renamed) |
+| 42 |   Фактическая цена, руб. (П) | нет | дробное число / сумма | [Фактическая цена, руб. (П)](#mp_db_nmid_fullstat_renamed) |
+| 43 |   Цена со скидкой продавца, руб. (П) | нет | дробное число / сумма | [Цена со скидкой продавца, руб. (П)](#mp_db_nmid_fullstat_renamed) |
+| 44 |   Показы (Р) | нет | целое число / сумма | [Показы (Р)](#mp_db_nmid_fullstat_renamed) |
+| 45 |   Клики (Р) | нет | целое число / сумма | [Клики (Р)](#mp_db_nmid_fullstat_renamed) |
+| 46 |   Расход, руб. (Р) | нет | дробное число / сумма | [Расход, руб. (Р)](#mp_dbn_mid_fullstat_renamed) |
+| 47 |   Положили в корзину, шт. (Р) | нет | целое число / сумма | [Положили в корзину, шт. (Р)](#mp_db_nmid_fullstat_renamed) |
+| 48 |   Количество заказов, шт. (Р) | нет | целое число / сумма | [Количество заказов, шт. (Р)](#mp_db_nmid_fullstat_renamed) |
+| 49 |   Кол-во заказанных товаров, шт. (Р) | нет | целое число / сумма | [Кол-во заказанных товаров, шт. (Р)](#mp_db_nmid_fullstat_renamed) |
+| 50 |   Сумма заказов, руб. (Р) | нет | дробное число / сумма | [Сумма заказов, руб. (Р)](#mp_db_nmid_fullstat_renamed) |
 
 ### Остатки
 **Таблица / представление** - [mp_db.stocks_stat_new](#mp_db_stocks_stat_new)\
@@ -157,16 +157,16 @@ password: 12345m678\
 | 17 |  Остатки, шт.| ```[Количество Остатков] ```  | дробное число / авто | нет |
 | 18 |  Товаров по пути к клиенту, шт. | ```[Количество Товаров В Пути К Клиент] ```  | дробное число / авто | нет |
 | 19 |  Артикул продавца  | ```[s.supplierArticle] ```  | строка / нет | нет |
-| 20 | Дата  | нет  | дата / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 21 | Склад | нет | строка / нет |[mp_db.stocks_stat_new](#mp_db.stocks_stat_new)|
-| 22 | s.nmId | нет | целое число / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 23 |  Количество Продаж Всего | нет | целое число / сумма | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 24 |  Сумма Продаж По PriceWithDisc  | нет | дробное число / сумма | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 25 | Количество Остатков  | нет | целое число / среднее | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 26 | Количество Товаров В Пути К Клиент | нет | целое число / среднее | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 27 | s.supplierArticle | нет | строка / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 28 | Общее Количество Заказов | нет | целое число / сумма | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 29 | Общее Количество Продаж | нет | целое число / сумма | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
+| 20 | Дата  | нет  | дата / нет | [Дата](#mp_db_stocks_stat_new) |
+| 21 | Склад | нет | строка / нет |[Склад](#mp_db_stocks_stat_new)|
+| 22 | s.nmId | нет | целое число / нет | [s.nmId](#mp_db_stocks_stat_new) |
+| 23 |  Количество Продаж Всего | нет | целое число / сумма | [Количество Продаж Всего](#mp_db_stocks_stat_new) |
+| 24 |  Сумма Продаж По PriceWithDisc  | нет | дробное число / сумма | [Сумма Продаж По PriceWithDisc](#mp_db_stocks_stat_new) |
+| 25 | Количество Остатков  | нет | целое число / среднее | [Количество Остатков](#mp_db_stocks_stat_new) |
+| 26 | Количество Товаров В Пути К Клиент | нет | целое число / среднее | [Количество Товаров В Пути К Клиент](#mp_db_stocks_stat_new) |
+| 27 | s.supplierArticle | нет | строка / нет | [s.supplierArticle](#mp_db_stocks_stat_new) |
+| 28 | Общее Количество Заказов | нет | целое число / сумма | [Общее Количество Заказов](#mp_db_stocks_stat_new) |
+| 29 | Общее Количество Продаж | нет | целое число / сумма | [Общее Количество Продаж](#mp_db_stocks_stat_new) |
 
 ### Остатки_размеры
 **Таблица / представление** - [mp_db.stock_size](#mp_db_stock_size)\
@@ -178,14 +178,14 @@ password: 12345m678\
 | ---------- | ---- | ---- | ---- | ---- |
 | 1 | Карточка товара | ``` [nmId] ``` | строка / нет | нет |
 | 2 | Ссылка | ``` URL('https://www.wildberries.ru/catalog/'+ str([Карточка товара]) + '/detail.aspx', str([Карточка товара])) ``` | разметка / нет | нет |
-| 3 | warehouseName | нет  | строка / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 4 | nmId | нет  | целое число / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 5 | techSize | нет  | строка / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
-| 6 | quantity | нет  | целое число / нет | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
+| 3 | warehouseName | нет  | строка / нет | [warehouseName](#mp_db_stocks_stat_new) |
+| 4 | nmId | нет  | целое число / нет | [nmId](#mp_db_stocks_stat_new) |
+| 5 | techSize | нет  | строка / нет | [techSize](#mp_db_stocks_stat_new) |
+| 6 | quantity | нет  | целое число / нет | [quantity](#mp_db_stocks_stat_new) |
 
 ### План факт
 **Таблица / представление** - левое соединение 
-[mp_db.plan_fact_current](#mp_db_plan_fact_current) - [mp_db.order_current](#mp_db_plan_fact_current)\
+[mp_db.plan_fact_current](#mp_db_plan_fact_current) - [mp_db.order_current](#mp_db_order_current)\
 wb_sku = nmid_orders\
 **Есть ли расчетные поля** - да\
 **Наличие параметров** - нет\
@@ -202,12 +202,12 @@ wb_sku = nmid_orders\
 | 7 | Осталось дней | ``` DAY((DATETRUNC(DATEADD(NOW(), "month"), "month") - 1)) - DAY(NOW()) ```  | целое число / нет | нет |
 | 8 | Среднее количество заказов | ``` [Количество заказов] / [Дней с начала месяца] ```  |  дробное число / нет | нет |
 | 9 | Дней с начала месяца| ``` DAY(NOW()) - DAY(DATETRUNC(NOW(), "month")) + 1 ```  | целое число / нет | нет |
-| 10 | supplier_sku| нет |  строка / нет  | [mp_db.plan_fact_current](#mp_db.plan_fact_current) |
-| 11 | wb_sku | нет | целое число / нет | [mp_db.plan_fact_current](#mp_db.plan_fact_current) |
-| 12 | month | нет | дата / нет | [mp_db.plan_fact_current](#mp_db.plan_fact_current) |
-| 13 | monthly_plan| нет | дата / авто | [mp_db.plan_fact_current](#mp_db.plan_fact_current) |
-| 14 | nmid_orders| нет | целое число / нет | [mp_db.order_current](#mp_db.plan_fact_current) |
-| 15 | sum(total_count_orders) | нет | целое число / нет | [mp_db.order_current](#mp_db.plan_fact_current) |
+| 10 | supplier_sku| нет |  строка / нет  | [supplier_sku](#mp_db_plan_fact_current) |
+| 11 | wb_sku | нет | целое число / нет | [wb_sku](#mp_db_plan_fact_current) |
+| 12 | month | нет | дата / нет | [month](#mp_db_plan_fact_current) |
+| 13 | monthly_plan| нет | дата / авто | [monthly_plan](#mp_db_plan_fact_current) |
+| 14 | nmid_orders| нет | целое число / нет | [nmid_orders](#mp_db_order_current) |
+| 15 | sum(total_count_orders) | нет | целое число / нет | [sum(total_count_orders)](#mp_db_order_current) |
 
 ### Юнит_экономика
 **Таблица / представление** - [mp_db.unitka](#mp_db_unitka)\
@@ -231,31 +231,31 @@ wb_sku = nmid_orders\
 | 12 | Платное хранение 1 ед. | ``` IFNULL(SUM(([pss.sum_warehousePric] / [pss.sum_barcodesCount])), 0)  ```  | дробное число / авто | нет |
 | 13 | Платное хранение | ``` if [UnitType] = 'Общий отчет о продажах'    then IFNULL(SUM(([pss.sum_warehousePric] / [pss.sum_barcodesCount])), 0) * [sdrs.Количество] ELSE IFNULL(SUM(([pss.sum_warehousePric] / [pss.sum_barcodesCount])), 0) END ```  | дробное число / авто | нет |
 | 14 | Рекламные расходы | ``` if [UnitType] = 'Общий отчет о продажах'    then IFNULL([ass.sum_ads], 0) ELSE IFNULL([ass.sum_ads], 0) / [sdrs.Количество] END ```  | дробное число / авто | нет |
-| 15 | pss.sum_warehousePric | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
-| 16 | sdrs.Артикул ВБ | нет  | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 17 | sdrs.Артикул продовца | нет  | строка / нет | [mp_db.unitka](#mp_db.unitka) |
-| 18 | sdrs.Дата продажи | нет  | дата / нет | [mp_db.unitka](#mp_db.unitka) |
-| 19 | sdrs.Цена (со скидкой продавца, до СПП) | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
-| 20 | sdrs.Логистика | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
-| 21 | sdrs.Комиссия ВБ | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
-| 22 | sdrs.Штрафы | нет  | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
-| 23 | sdrs.Платная премка | нет | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
-| 24 | ass.date_ads | нет | дата / нет | [mp_db.unitka](#mp_db.unitka) |
-| 25 | ass.nmid_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 26 | ass.views_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 27 | ass.clicks_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 28 | ass.sum_ads| нет | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
-| 29 | ass.atbs_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 30 | ass.orders_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 31 | ass.shks_ads | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 32 | ass.sum_price_ads | нет | дробное число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 33 | pss.date | нет | дата / нет | [mp_db.unitka](#mp_db.unitka) |
-| 34 | pss.nmId | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 35 | cp.nmID | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 36 | cp.cost | нет | дробное число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 37 | sdrs.Количество | нет | дробное число / сумма | [mp_db.unitka](#mp_db.unitka) |
-| 38 | pss.sum_barcodesCount | нет | дробное число / нет | [mp_db.unitka](#mp_db.unitka) |
-| 39 | sdrs.Цена до скидок | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka)) |
+| 15 | pss.sum_warehousePric | нет  | дробное число / сумма | [mp_db.unitka](#mp_db_unitka) |
+| 16 | sdrs.Артикул ВБ | нет  | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 17 | sdrs.Артикул продовца | нет  | строка / нет | [mp_db.unitka](#mp_db_unitka) |
+| 18 | sdrs.Дата продажи | нет  | дата / нет | [mp_db.unitka](#mp_db_unitka) |
+| 19 | sdrs.Цена (со скидкой продавца, до СПП) | нет  | дробное число / сумма | [mp_db.unitka](#mp_db_unitka) |
+| 20 | sdrs.Логистика | нет  | дробное число / сумма | [mp_db.unitka](#mp_db_unitka) |
+| 21 | sdrs.Комиссия ВБ | нет  | дробное число / сумма | [mp_db.unitka](#mp_db_unitka) |
+| 22 | sdrs.Штрафы | нет  | дробное число / сумма | [mp_db.unitka](#mp_db_unitka) |
+| 23 | sdrs.Платная премка | нет | дробное число / сумма | [mp_db.unitka](#mp_db_unitka) |
+| 24 | ass.date_ads | нет | дата / нет | [mp_db.unitka](#mp_db_unitka) |
+| 25 | ass.nmid_ads | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 26 | ass.views_ads | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 27 | ass.clicks_ads | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 28 | ass.sum_ads| нет | дробное число / сумма | [mp_db.unitka](#mp_db_unitka) |
+| 29 | ass.atbs_ads | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 30 | ass.orders_ads | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 31 | ass.shks_ads | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 32 | ass.sum_price_ads | нет | дробное число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 33 | pss.date | нет | дата / нет | [mp_db.unitka](#mp_db_unitka) |
+| 34 | pss.nmId | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 35 | cp.nmID | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 36 | cp.cost | нет | дробное число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 37 | sdrs.Количество | нет | дробное число / сумма | [mp_db.unitka](#mp_db_unitka) |
+| 38 | pss.sum_barcodesCount | нет | дробное число / нет | [mp_db.unitka](#mp_db_unitka) |
+| 39 | sdrs.Цена до скидок | нет | целое число / нет | [mp_db.unitka](#mp_db_unitka)) |
 
 ## 2. Представления
 ### mp_db_ads_stat_summary
