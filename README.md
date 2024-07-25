@@ -258,7 +258,7 @@ wb_sku = nmid_orders\
 | 39 | sdrs.Цена до скидок | нет | целое число / нет | [mp_db.unitka](#mp_db.unitka)) |
 
 ## 2. Представления
-### mp_db.ads_stat_summary
+### mp_db_ads_stat_summary
 **Родительская таблица** - [mp_db.advert_stats](#mp_db.advert_stats)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - date_ads, nmId
