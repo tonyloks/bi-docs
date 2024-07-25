@@ -16,7 +16,7 @@ password: 12345m678\
 1. [Юнит экономика](#Юнит_экономика).
   # 2. Представления
 Список представлений:
-1. [mp_db.ads_stat_summary](#mp_db.ads_stat_summary);
+1. [mp_db.ads_stat_summary](#mp_db_ads_stat_summary);
 1. [mp_db.articleadd](#mp_db.articleadd);
 1. [mp_db.execute_plan](#mp_db.execute_plan);
 1. [mp_db.kt_stat_summary](#mp_db.kt_stat_summary);
