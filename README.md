@@ -528,6 +528,296 @@ wb_sku = nmid_orders\
 |24|cp.nmID|[cp.nmID](#cp.nmID)|Nullable(10,null)|-|
 |25|cp.cost|[cp.cost](#cp.cost)|Nullable(22,null)|-|   
 
+## 3. Таблицы
+### mp_db.ads_cost_history 
 
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|updNum|Int32(10,notnull)|Номер выставленного документа (при наличии)|
+|3|updTime|DateTime(29,notnull)|Время списания|
+|4|updSum|Int32(10,notnull)|Выставленная сумма в руб.|
+|5|advertId|Int32(10,notnull)|Идентификатор кампании|
+|6|campName|String(notnull)|Название кампании|
+|7|advertType|Int32(10,notnull)|Тип кампании|
+|8|paymentType|String(notnull)|Источник списания: Баланс Бонусы Счет |
+|9|advertStatus|Int32(10,notnull)|Статус кампании: 4 - готова к запуску 7 - завершена 8 - отказался 9 - активна 11 - приостановлена |
 
+### mp_db.advert_stats
 
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|date|DateTime(29,notnull)|Даты, за которые необходимо выдать информацию.|
+|3|advertId|Int32(10,notnull)|ID кампании|
+|4|appType|Int32(10,notnull)|не нашел|
+|5|nmId|Int32(10,notnull)|Артикул Wildberries|
+|6|views|Int32(10,notnull)|Количество просмотров. За все дни, по всем артикулам WB и платформам.|
+|7|clicks|Int32(10,notnull)|Количество кликов. За все дни, по всем артикулам WB и платформам.|
+|8|sum|Float32(12,notnull)|Затраты, ₽. За все дни, по всем артикулам WB и платформам.|
+|9|atbs|Int32(10,notnull)|Количество добавлений товаров в корзину. За все дни, по всем артикулам WB и платформам.|
+|10|orders|Int32(10,notnull)|Количество заказов. За все дни, по всем артикулам WB и платформам.|
+|11|shks|Int32(10,notnull)|Количество заказанных товаров, шт. За все дни, по всем артикулам WB и платформам.|
+|12|sum_price|Float32(12,notnull)|Заказов на сумму, ₽ За все дни, по всем артикулам WB и платформам.|
+|13|ctr|Float32(12,notnull)|Показатель кликабельности. Отношение числа кликов к количеству показов. Выражается в процентах. За все дни, по всем артикулам WB и платформам.|
+|14|cpc|Float32(12,notnull)|Средняя стоимость клика, ₽. За все дни, по всем артикулам WB и платформам.|
+|15|cr|Float32(12,notnull)|CR(conversion rate) — это отношение количества заказов к общему количеству посещений кампании. За все дни, по всем артикулам WB и платформам.|
+|16|name|String(notnull)|Предмет|
+
+### mp_db.cards_content
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|vendorCode|String(notnull)|Артикул продавца|
+|3|nmID|Int32(10,notnull)|Артикул Wildberries|
+|4|subjectName|String(notnull)|Название объекта|
+|5|brand|String(notnull)|Бренд|
+|6|title|String(notnull)|Заголовок|
+|7|sizes|String(notnull)|Размер|
+|8|volume|Float32(12,notnull)|Количество|
+|9|big_photo|String(notnull)|Фото|
+|10|color|String(notnull)|Цвет|
+|11|gender|String(notnull)|Пол|
+|12|tags|String(notnull)|Тэги|
+
+### mp_db.commissions
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|kgvpMarketplace|Float32(12,notnull)| |
+|3|kgvpSupplier|Float32(12,notnull)| |
+|4|kgvpSupplierExpress|Float32(12,notnull)| |
+|5|paidStorageKgvp|Float32(12,notnull)| |
+|6|parentID|Int32(10,notnull)| |
+|7|parentName|String(notnull)| |
+|8|subjectID|Int32(10,notnull)| |
+|9|subjectName|String(notnull)| |
+|10|date|DateTime(29,notnull)| |
+
+### mp_db.cost_price
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|nmID|Int32(10,notnull)|Артикул Wildberries|
+|2|cost|Float32(12,notnull)|Стоимость|
+
+### mp_db.kt_stats
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|nmID|Int32(10,notnull)|Артикул Wildberries|
+|3|imtName|String(notnull)| |
+|4|vendorCode|String(notnull)|Артикул продавца|
+|5|dt|DateTime(29,notnull)|Дата|
+|6|openCardCount|Int32(10,notnull)|Переходы в карточку товара|
+|7|addToCartCount|Int32(10,notnull)|Положили в корзину, шт|
+|8|ordersCount|Int32(10,notnull)|Заказали товаров, шт.|
+|9|ordersSumRub|Float32(12,notnull)|Заказали на сумму, ₽|
+|10|buyoutsCount|Int32(10,notnull)|Выкупили товаров, шт|
+|11|buyoutsSumRub|Float32(12,notnull)|Выкупили на сумму, ₽|
+|12|buyoutPercent|Float32(12,notnull)|Процент выкупа, % (Какой процент посетителей, заказавших товар, его выкупили. Без учёта товаров, которые еще доставляются покупателю)|
+|13|addToCartConversion|Float32(12,notnull)|Конверсия в корзину, % (Какой процент посетителей, открывших карточку товара, добавили товар в корзину)|
+|14|cartToOrderConversion|Float32(12,notnull)|Конверсия в заказ, % (Какой процент посетителей, добавивших товар в корзину, сделали заказ)|
+
+### mp_db.orders_stat
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|date|DateTime(29,notnull)| |
+|3|lastChangeDate|DateTime(29,notnull)|Дата и время обновления информации в сервисе. |
+|4|warehouseName|String(notnull)|Склад отгрузки|
+|5|countryName|String(notnull)|Страна|
+|6|oblastOkrugName|String(notnull)|Округ|
+|7|regionName|String(notnull)|Регион|
+|8|supplierArticle|String(notnull)|Артикул продавца|
+|9|nmId|Int32(10,notnull)|Артикул WB|
+|10|barcode|String(notnull)|Баркод|
+|11|category|String(notnull)|Категория|
+|12|subject|String(notnull)|Предмет|
+|13|brand|String(notnull)|Бренд|
+|14|techSize|String(notnull)|Размер товара|
+|15|incomeID|Int32(10,notnull)|Номер поставки|
+|16|isSupply|Bool(notnull)|Договор поставки|
+|17|isRealization|Bool(notnull)|Договор реализации|
+|18|totalPrice|Float32(12,notnull)|Цена без скидок|
+|19|discountPercent|Float32(12,notnull)|Скидка продавца|
+|20|spp|Float32(12,notnull)|Скидка WB|
+|21|finishedPrice|Float32(12,notnull)|Цена с учетом всех скидок, кроме суммы по WB Кошельку|
+|22|priceWithDisc|Float32(12,notnull)|Цена со скидкой продавца (= totalPrice * (1 - discountPercent/100))|
+|23|isCancel|Bool(notnull)|Отмена заказа. true - заказ отменен|
+|24|cancelDate|DateTime(29,notnull)|Дата и время отмены заказа|
+|25|orderType|String(notnull)|Тип заказа|
+|26|sticker|String(notnull)|Идентификатор стикера|
+|27|gNumber|String(notnull)|Номер заказа|
+|28|srid|String(notnull)|Уникальный идентификатор заказа.|
+
+### mp_db.paid_storage
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|date|String(notnull)|Дата, за которую был расчёт или перерасчёт|
+|3|logWarehouseCoef|Float32(12,notnull)|Коэффициент логистики и хранения|
+|4|officeId|Int32(10,notnull)|ID склада|
+|5|warehouse|String(notnull)|Название склада|
+|6|warehouseCoef|Float32(12,notnull)|Коэффициент склада|
+|7|giId|Int32(10,notnull)|ID поставки|
+|8|chrtId|Int32(10,notnull)|Идентификатор размера для этого артикула Wildberries|
+|9|size|String(notnull)|Размер (techSize в карточке товара)|
+|10|barcode|String(notnull)|Баркод|
+|11|subject|String(notnull)|Предмет|
+|12|brand|String(notnull)|Бренд|
+|13|vendorCode|String(notnull)|Артикул продавца|
+|14|nmId|Int32(10,notnull)|Артикул Wildberries|
+|15|volume|Float32(12,notnull)|Объём товара|
+|16|calcType|String(notnull)|Способ расчёта|
+|17|warehousePrice|Float32(12,notnull)|Сумма хранения|
+|18|barcodesCount|Int32(10,notnull)|Количество единиц товара (штук), подлежащих тарифицированию за расчётные сутки|
+|19|palletPlaceCode|Int32(10,notnull)|Код паллетоместа|
+|20|palletCount|Float32(12,notnull)|Количество паллет|
+|21|originalDate|String(notnull)|Если был перерасчёт, это дата первоначального расчёта. Если перерасчёта не было, совпадает с date|
+|22|loyaltyDiscount|Float32(12,notnull)|Скидка программы лояльности, ₽|
+|23|tariffFixDate|String(notnull)|Дата фиксации тарифа|
+|24|tariffLowerDate|String(notnull)|Дата понижения тарифа|
+
+### mp_db.product_plan
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|supplier_sku|String(notnull)| |
+|2|wb_sku|String(notnull)| |
+|3|monthly_plan|UInt32(10,notnull)| |
+|4|month|Date(0,notnull)| |
+
+### mp_db.sales_detail_report_stat
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|realizationreport_id|Int32(10,notnull)|Номер отчёта|
+|3|date_from|DateTime(29,notnull)|Дата начала отчётного периода|
+|4|date_to|DateTime(29,notnull)|Дата конца отчётного периода|
+|5|create_dt|DateTime(29,notnull)|Дата формирования отчёта|
+|6|currency_name|String(notnull)|Валюта отчёта|
+|7|suppliercontract_code|String(notnull)|Договор|
+|8|rrd_id|Int32(10,notnull)|Номер строки|
+|9|gi_id|Int32(10,notnull)|Номер поставки|
+|10|subject_name|String(notnull)|Предмет|
+|11|nm_id|Int32(10,notnull)|Артикул WB|
+|12|brand_name|String(notnull)|Бренд|
+|13|sa_name|String(notnull)|Артикул продавца|
+|14|ts_name|String(notnull)|Размер|
+|15|barcode|String(notnull)|Баркод|
+|16|doc_type_name|String(notnull)|Тип документа|
+|17|quantity|Int32(10,notnull)|Количество|
+|18|retail_price|Float32(12,notnull)|Цена розничная|
+|19|retail_amount|Float32(12,notnull)|Сумма продаж (возвратов)|
+|20|sale_percent|Float32(12,notnull)|Согласованная скидка|
+|21|commission_percent|Float32(12,notnull)|Процент комиссии|
+|22|office_name|String(notnull)|Склад|
+|23|supplier_oper_name|String(notnull)|Обоснование для оплаты|
+|24|order_dt|DateTime(29,notnull)|Дата заказа. Присылается с явным указанием часового пояса|
+|25|sale_dt|DateTime(29,notnull)|Дата продажи. Присылается с явным указанием часового пояса|
+|26|rr_dt|DateTime(29,notnull)|Дата операции. Присылается с явным указанием часового пояса|
+|27|shk_id|Int32(10,notnull)|Штрих-код|
+|28|retail_price_withdisc_rub|Float32(12,notnull)|Цена розничная с учетом согласованной скидки|
+|29|delivery_amount|Float32(12,notnull)|Количество доставок|
+|30|return_amount|Float32(12,notnull)|Количество возвратов|
+|31|delivery_rub|Float32(12,notnull)|Стоимость логистики|
+|32|gi_box_type_name|String(notnull)|Тип коробов|
+|33|product_discount_for_report|Float32(12,notnull)|Согласованный продуктовый дисконт|
+|34|supplier_promo|Float32(12,notnull)|Промокод|
+|35|rid|Int32(10,notnull)|Уникальный идентификатор заказа|
+|36|ppvz_spp_prc|Float32(12,notnull)|Скидка постоянного покупателя|
+|37|ppvz_kvw_prc_base|Float32(12,notnull)|Размер кВВ без НДС, % базовый|
+|38|ppvz_kvw_prc|Float32(12,notnull)|Итоговый кВВ без НДС, %|
+|39|sup_rating_prc_up|Float32(12,notnull)|Размер снижения кВВ из-за рейтинга|
+|40|is_kgvp_v2|Int32(10,notnull)|Размер снижения кВВ из-за акции|
+|41|ppvz_sales_commission|Float32(12,notnull)|Вознаграждение с продаж до вычета услуг поверенного, без НДС|
+|42|ppvz_for_pay|Float32(12,notnull)|К перечислению продавцу за реализованный товар|
+|43|ppvz_reward|Float32(12,notnull)|Возмещение за выдачу и возврат товаров на ПВЗ|
+|44|acquiring_fee|Float32(12,notnull)|Возмещение издержек по эквайрингу.|
+|45|acquiring_bank|String(notnull)|Наименование банка-эквайера|
+|46|ppvz_vw|Float32(12,notnull)|Вознаграждение WB без НДС|
+|47|ppvz_vw_nds|Float32(12,notnull)|НДС с вознаграждения WB|
+|48|ppvz_office_id|Int32(10,notnull)|Номер офиса|
+|49|ppvz_office_name|String(notnull)|Наименование офиса доставки|
+|50|ppvz_supplier_id|Int32(10,notnull)|Номер партнера|
+|51|ppvz_supplier_name|String(notnull)|Партнер|
+|52|ppvz_inn|String(notnull)|ИНН партнера|
+|53|declaration_number|String(notnull)|Номер таможенной декларации|
+|54|bonus_type_name|String(notnull)|Обоснование штрафов и доплат.Поле будет в ответе при наличии значения|
+|55|sticker_id|String(notnull)|Цифровое значение стикера, который клеится на товар в процессе сборки заказа по схеме "Маркетплейс"|
+|56|site_country|String(notnull)|Страна продажи|
+|57|penalty|Float32(12,notnull)|Штрафы|
+|58|additional_payment|Float32(12,notnull)|Доплаты|
+|59|rebill_logistic_cost|Float32(12,notnull)|Возмещение издержек по перевозке. Поле будет в ответе при наличии значения|
+|60|rebill_logistic_org|String(notnull)|Организатор перевозки. Поле будет в ответе при наличии значения|
+|61|kiz|String(notnull)|Код маркировки.Поле будет в ответе при наличии значения|
+|62|storage_fee|Float32(12,notnull)|Стоимость хранения|
+|63|deduction|Float32(12,notnull)|Прочие удержания/выплаты|
+|64|acceptance|Float32(12,notnull)|Стоимость платной приёмки|
+|65|srid|String(notnull)|Уникальный идентификатор заказа.Srid равен rid в ответах методов сборочных заданий.|
+|66|report_type|Int32(10,notnull)|Тип отчёта: 1 — стандартный 2 — для уведомления о выкупе|
+
+### mp_db.sales_stat
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|date|DateTime(29,notnull)|Дата и время продажи. Это поле соответствует параметру dateFrom в запросе, если параметр flag=1. Если часовой пояс не указан, то берется Московское время (UTC+3)|
+|3|lastChangeDate|DateTime(29,notnull)|Дата и время обновления информации в сервисе. Это поле соответствует параметру dateFrom в запросе, если параметр flag=0 или не указан. Если часовой пояс не указан, то берется Московское время (UTC+3)|
+|4|warehouseName|String(notnull)|Склад отгрузки|
+|5|countryName|String(notnull)|Страна|
+|6|oblastOkrugName|String(notnull)|Округ|
+|7|regionName|String(notnull)|Регион|
+|8|supplierArticle|String(notnull)|Артикул продавца|
+|9|nmId|Int32(10,notnull)|Артикул WB|
+|10|barcode|String(notnull)|Баркод|
+|11|category|String(notnull)|Категория|
+|12|subject|String(notnull)|Предмет|
+|13|brand|String(notnull)|Бренд|
+|14|techSize|String(notnull)|Размер товара|
+|15|incomeID|Int32(10,notnull)|Номер поставки|
+|16|isSupply|Bool(notnull)|Договор поставки|
+|17|isRealization|Bool(notnull)|Договор реализации|
+|18|totalPrice|Float32(12,notnull)|Цена без скидок|
+|19|discountPercent|Int32(10,notnull)|Скидка продавца|
+|20|spp|Float32(12,notnull)|Скидка WB|
+|21|paymentSaleAmount|Float32(12,notnull)|Оплачено с WB Кошелька|
+|22|forPay|Float32(12,notnull)|К перечислению продавцу|
+|23|finishedPrice|Float32(12,notnull)|Фактическая цена с учетом всех скидок (к взиманию с покупателя)|
+|24|priceWithDisc|Float32(12,notnull)|Цена со скидкой продавца, от которой считается сумма к перечислению продавцу forPay (= totalPrice * (1 - discountPercent/100))|
+|25|saleID|String(notnull)|Уникальный идентификатор продажи/возврата S********** — продажа R********** — возврат (на склад WB)|
+|26|orderType|String(notnull)|Тип заказа|
+|27|sticker|String(notnull)|Идентификатор стикера|
+|28|gNumber|String(notnull)|Номер заказа|
+|29|srid|String(notnull)|Уникальный идентификатор заказа|
+
+### mp_db.stocks_stat
+
+|Номер столбца|Название столбца|Тип столбца|Описание|
+|:---:|:---:|:---:|:---:|
+|1|id|Int32(10,notnull)|Идентификатор записи|
+|2|lastChangeDate|DateTime(29,notnull)| |
+|3|warehouseName|String(notnull)| |
+|4|supplierArticle|String(notnull)| |
+|5|nmId|Int32(10,notnull)| |
+|6|barcode| | |
+|7|quantity|Int32(10,notnull)| |
+|8|inWayToClient|Int32(10,notnull)| |
+|9|inWayFromClient|Int32(10,notnull)| |
+|10|quantityFull|Int32(10,notnull)| |
+|11|category|String(notnull)| |
+|12|subject|String(notnull)| |
+|13|brand|String(notnull)| |
+|14|techSize|String(notnull)| |
+|15|Price|Float32(12,notnull)| |
+|16|Discount|Float32(12,notnull)| |
+|17|isSupply|Bool(notnull)| |
+|18|isRealization|Bool(notnull)| |
+|19|SCCode|String(notnull)| |
