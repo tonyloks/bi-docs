@@ -48,7 +48,7 @@ password: 12345m678\
     ## 1. Датасеты
 
 ### Выкупы
-**Таблица / представление** - [mp_db.kt_stats](#mp_db.kt_stats)\
+**Таблица / представление** - [mp_db.kt_stats](#mp_db_kt_stats)\
 **Есть ли расчетные поля** - нет\
 **Наличие параметров** - нет\
 **Фильтрация** - нет
@@ -72,7 +72,7 @@ password: 12345m678\
 
 
 ### Основной_датасет
-**Таблица / представление** - [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed)\
+**Таблица / представление** - [mp_db.nmid_fullstat_renamed](#mp_db_nmid_fullstat_renamed)\
 **Есть ли расчетные поля** - да\
 **Наличие параметров** - (scale_date - строка - день), (selected_measure - строка - количество)\
 **Фильтрация** - нет
@@ -131,7 +131,7 @@ password: 12345m678\
 | 50 |   Сумма заказов, руб. (Р) | нет | дробное число / сумма | [mp_db.nmid_fullstat_renamed](#mp_db.nmid_fullstat_renamed) |
 
 ### Остатки
-**Таблица / представление** - [mp_db.stocks_stat_new](#mp_db.stocks_stat_new)\
+**Таблица / представление** - [mp_db.stocks_stat_new](#mp_db_stocks_stat_new)\
 **Есть ли расчетные поля** - да\
 **Наличие параметров** - нет\
 **Фильтрация** - нет
@@ -169,7 +169,7 @@ password: 12345m678\
 | 29 | Общее Количество Продаж | нет | целое число / сумма | [mp_db.stocks_stat_new](#mp_db.stocks_stat_new) |
 
 ### Остатки_размеры
-**Таблица / представление** - [mp_db.stock_size](#mp_db.stock_size)\
+**Таблица / представление** - [mp_db.stock_size](#mp_db_stock_size)\
 **Есть ли расчетные поля** - нет\
 **Наличие параметров** - нет\
 **Фильтрация** - нет
@@ -185,7 +185,7 @@ password: 12345m678\
 
 ### План факт
 **Таблица / представление** - левое соединение 
-[mp_db.plan_fact_current](#mp_db.plan_fact_current) - [mp_db.order_current](#mp_db.plan_fact_current)\
+[mp_db.plan_fact_current](#mp_db_plan_fact_current) - [mp_db.order_current](#mp_db_plan_fact_current)\
 wb_sku = nmid_orders\
 **Есть ли расчетные поля** - да\
 **Наличие параметров** - нет\
@@ -210,7 +210,7 @@ wb_sku = nmid_orders\
 | 15 | sum(total_count_orders) | нет | целое число / нет | [mp_db.order_current](#mp_db.plan_fact_current) |
 
 ### Юнит_экономика
-**Таблица / представление** - [mp_db.unitka](#mp_db.unitka)\
+**Таблица / представление** - [mp_db.unitka](#mp_db_unitka)\
 **Есть ли расчетные поля** - да\
 **Наличие параметров** - (UnitType - строка - фактическая юнит экономика), (Nalog - Целое число - 1)\
 **Фильтрация** - нет
@@ -259,7 +259,7 @@ wb_sku = nmid_orders\
 
 ## 2. Представления
 ### mp_db_ads_stat_summary
-**Родительская таблица** - [mp_db.advert_stats](#mp_db.advert_stats)\
+**Родительская таблица** - [mp_db.advert_stats](#mp_db_advert_stats)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - date_ads, nmId
 
@@ -275,8 +275,8 @@ wb_sku = nmid_orders\
 |8|shks_ads|[nmid_ads](#nmid_ads)|Int64(19,notnull)|sum|
 |9|sum_price_ads|[views_ads](#views_ads)|Float64(22,notnull)|sum|
 
-### mp_db.articleadd
-**Родительская таблица** - [mp_db.sales_stat](#mp_db.sales_stat)\
+### mp_db_articleadd
+**Родительская таблица** - [mp_db.sales_stat](#mp_db_sales_stat)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - nmId, supplierArticle
 
@@ -285,9 +285,9 @@ wb_sku = nmid_orders\
 |1|nmid_ads|[nmid_ads](#nmid_ads)|Int32(10,notnull)|-|
 |2|supplierArticle|[supplierArticle](#supplierArticle)|String(notnull)|-|
 
-### mp_db.execute_plan
-**Родительская таблица** - [mp_db.plan_fact_current](#mp_db.plan_fact_current)\
-**Присоединяемые таблицы** - левый джоин [mp_db.order_current](#mp_db.order_current)\
+### mp_db_execute_plan
+**Родительская таблица** - [mp_db.plan_fact_current](#mp_db_plan_fact_current)\
+**Присоединяемые таблицы** - левый джоин [mp_db.order_current](#mp_db_order_current)\
 (pfc.wb_sku = oc.nmid_orders)\
 **Группировка по полям** - нет
 
@@ -300,8 +300,8 @@ wb_sku = nmid_orders\
 |5|nmid_orders|[nmid_orders](#nmid_orders)|Int32(10,notnull)|-|
 |6|sum(total_count_orders)|[sum(total_count_orders)](#sum(total_count_orders))|UInt64(20,notnull)|-|
 
-### mp_db.kt_stat_summary
-**Родительская таблица** - [mp_db.kt_stats](#mp_db.kt_stats)\
+### mp_db_kt_stat_summary
+**Родительская таблица** - [mp_db.kt_stats](#mp_db_kt_stats)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - nmID, dt, imtName
 
@@ -320,15 +320,15 @@ wb_sku = nmid_orders\
 |11|sum_buyoutssumrub_kt|[sum_buyoutssumrub_kt](#sum_buyoutssumrub_kt)|Float64(22,notnull)|sum|
 |12|sum_buyoutpercent_kt|[sum_buyoutpercent_kt](#sum_buyoutpercent_kt)|Float64(22,notnull)|sum|
 
-### mp_db.nmid_fullstat_renamed
-**Родительская таблица** - [mp_db.kt_stat_summary](#mp_db.kt_stat_summary)\
-**Присоединяемые таблицы** - левый джоин [mp_db.orders_stat_summary](#mp_db.orders_stat_summary)\
+### mp_db_nmid_fullstat_renamed
+**Родительская таблица** - [mp_db.kt_stat_summary](#mp_db_kt_stat_summary)\
+**Присоединяемые таблицы** - левый джоин [mp_db.orders_stat_summary](#mp_db_orders_stat_summary)\
 (k.nmID_KT = o.nmid_orders) AND (k.date_kt = o.date_orders),\
-левый джоин [mp_db.sales_stat_summary](#mp_db.sales_stat_summary)\
+левый джоин [mp_db.sales_stat_summary](#mp_db_sales_stat_summary)\
 (k.nmID_KT = s.nmid_sales) AND (k.date_kt = s.date_sales),\
-левый джоин [mp_db.ads_stat_summary](#mp_db.ads_stat_summary)\
+левый джоин [mp_db.ads_stat_summary](#mp_db_ads_stat_summary)\
 (k.nmID_KT = a.nmid_ads) AND (k.date_kt = a.date_ads)\
-левый джоин [mp_db.articleadd](#mp_db.articleadd)\
+левый джоин [mp_db.articleadd](#mp_db_articleadd)\
 (k.nmID_KT = art.nmId)\
 **Группировка по полям** - нет
 
@@ -363,8 +363,8 @@ wb_sku = nmid_orders\
 |27|Кол-во заказанных товаров шт. (Р)|[Кол-во заказанных товаров шт. (Р)](#Кол-во заказанных товаров шт. (Р))|Nullable(19,null)|-|
 |28|Сумма заказов руб. (Р)|[Сумма заказов руб. (Р)](#Сумма заказов руб. (Р))|Nullable(22,null)|-|
 
-### mp_db.order_current
-**Родительская таблица** - [mp_db.orders_stat_summary](#mp_db.orders_stat_summary)\
+### mp_db_order_current
+**Родительская таблица** - [mp_db.orders_stat_summary](#mp_db_orders_stat_summary)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - nmid_orders
 
@@ -373,8 +373,8 @@ wb_sku = nmid_orders\
 |1|nmid_orders|[nmid_orders](#nmid_orders)|Int32(10,notnull)|-|
 |2|sum(total_count_orders)|[sum(total_count_orders)](#sum(total_count_orders))|UInt64(20,notnull)|sum|
 
-### mp_db.orders_stat_summary
-**Родительская таблица** - [mp_db.orders_stat](#mp_db.orders_stat)\
+### mp_db_orders_stat_summary
+**Родительская таблица** - [mp_db.orders_stat](#mp_db_orders_stat)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - nmId, date
 
@@ -390,8 +390,8 @@ wb_sku = nmid_orders\
 |8|sum_finishedprice_orders|[sum_finishedprice_orders](#sum_finishedprice_orders)|Float64(22,notnull)|sum|
 |9|sum_pricewithdisc_orders|[sum_pricewithdisc_orders](#sum_pricewithdisc_orders)|Float64(22,notnull)|sum|
 
-### mp_db.paid_storage_summary
-**Родительская таблица** - [mp_db.paid_storage](#mp_db.paid_storage)\
+### mp_db_paid_storage_summary
+**Родительская таблица** - [mp_db.paid_storage](#mp_db_paid_storage)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - nmId, date
 
@@ -402,8 +402,8 @@ wb_sku = nmid_orders\
 |3|sum_warehousePric|[sum_warehousePric](#sum_warehousePric)|Float64(22,notnull)|sum|
 |4|sum_barcodesCount|[sum_barcodesCount](#sum_barcodesCount)|Float64(22,notnull)|sum|
 
-### mp_db.plan_fact_current
-**Родительская таблица** - [mp_db.product_plan](#mp_db.product_plan)\
+### mp_db_plan_fact_current
+**Родительская таблица** - [mp_db.product_plan](#mp_db_product_plan)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - нет\
 **Дополнительные условия** - В таблице содержатся данные у которых месяц и год совпадает с текущим
@@ -415,8 +415,8 @@ wb_sku = nmid_orders\
 |3|month|[month](#month)|Date(10,notnull)|-|
 |4|monthly_plan|[monthly_plan](#monthly_plan)|Float64(22,notnull)|-|
 
-### mp_db.sales_detail_report_summary
-**Родительская таблица** - [mp_db.sales_detail_report_stat](#mp_db.sales_detail_report_stat)\
+### mp_db_sales_detail_report_summary
+**Родительская таблица** - [mp_db.sales_detail_report_stat](#mp_db_sales_detail_report_stat)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - Дата продажи, nm_id, sa_name\
 **Дополнительные условия** - В таблице содержатся данные у которых поле supplier_oper_name = Продажа
@@ -434,8 +434,8 @@ wb_sku = nmid_orders\
 |9|Штрафы|[Штрафы](#Штрафы)|Float64(22,notnull)|sum|
 |10|Платная премка|[Платная премка](#Платная премка)|Float64(22,notnull)|sum|
 
-### mp_db.sales_stat_summary
-**Родительская таблица** - [mp_db.sales_stat](#mp_db.sales_stat)\
+### mp_db_sales_stat_summary
+**Родительская таблица** - [mp_db.sales_stat](#mp_db_sales_stat)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - nmid_sales, date_sales\
 **Дополнительные условия** - нет
@@ -452,8 +452,8 @@ wb_sku = nmid_orders\
 |8|sum_finishedprice_sales|[sum_finishedprice_sales](#sum_finishedprice_sales)|Float64(22,notnull)|sum|
 |9|sum_pricewithdisc_sales|[sum_pricewithdisc_sales](#sum_pricewithdisc_sales)|Float64(22,notnull)|sum|
 
-### mp_db.stock_size
-**Родительская таблица** - [mp_db.stocks_stat](#mp_db.stocks_stat)\
+### mp_db_stock_size
+**Родительская таблица** - [mp_db.stocks_stat](#mp_db_stocks_stat)\
 **Присоединяемые таблицы** - нет\
 **Группировка по полям** - нет\
 **Дополнительные условия** - нет
@@ -465,11 +465,11 @@ wb_sku = nmid_orders\
 |3|techSize|[techSize](#techSize)|Int32(10,notnull)|-|
 |4|quantity|[quantity](#quantity)|String(notnull)|-|
 
-### mp_db.stocks_stat_new
-**Родительская таблица** - [mp_db.sales_sta](#mp_db.sales_stat)t\
-**Присоединяемые таблицы** - инер джоин [mp_db.stocks_stat](#mp_db.stocks_stat) \
+### mp_db_stocks_stat_new
+**Родительская таблица** - [mp_db.sales_sta](#mp_db_sales_stat)t\
+**Присоединяемые таблицы** - инер джоин [mp_db.stocks_stat](#mp_db_stocks_stat) \
 (s.nmId = st.nmId) AND (s.warehouseName = st.warehouseName)\
-левый джоин cr - ([mp_db.orders_stat](#mp_db.orders_stat) + [mp_db.sales_stat](#mp_db.sales_stat))\
+левый джоин cr - ([mp_db.orders_stat](#mp_db_orders_stat) + [mp_db.sales_stat](#mp_db_sales_stat))\
 (cr.nmId = s.nmId) AND (cr.warehouseName = s.warehouseName) AND (cr.date = toDate(s.date)) AND (cr.supplierArticle = s.supplierArticle)\
 **Группировка по полям** - s.date, s.warehouseName, s.nmId, s.supplierArticle, cr.totalOrders, cr.totalSales\
 **Дополнительные условия** - нет
@@ -487,15 +487,15 @@ wb_sku = nmid_orders\
 |9|Общее Количество Заказов|[Общее Количество Заказов](#Общее Количество Заказов)|Nullable(20,null)|-|
 |10|Общее Количество Продаж|[Общее Количество Продаж](#Общее Количество Продаж)|Nullable(20,null)|-|
 
-### mp_db.unitka
-**Родительская таблица** - [mp_db.sales_detail_report_summary](#mp_db.sales_detail_report_summary)\
-**Присоединяемые таблицы** - полный джоин [mp_db.ads_stat_summary](#mp_db.ads_stat_summary\)\
+### mp_db_unitka
+**Родительская таблица** - [mp_db.sales_detail_report_summary](#mp_db_sales_detail_report_summary)\
+**Присоединяемые таблицы** - полный джоин [mp_db.ads_stat_summary](#mp_db_ads_stat_summary)\
 (sdrs.Дата продажи = ass.date_ads) AND (sdrs.Артикул ВБ = ass.nmid_ads)\
- полный джоин [mp_db.paid_storage_summary](#mp_db.paid_storage_summary)\
+ полный джоин [mp_db.paid_storage_summary](#mp_db_paid_storage_summary)\
 (sdrs.Дата продажи = pss.date) AND (sdrs.Артикул ВБ = pss.nmId)\
- полный джоин [mp_db.cost_price](#mp_db.cost_price)\
+ полный джоин [mp_db.cost_price](#mp_db_cost_price)\
 (cp.nmID = sdrs.Артикул ВБ)\
- полный джоин [mp_db.sales_stat_summary](#mp_db.sales_stat_summary)\
+ полный джоин [mp_db.sales_stat_summary](#mp_db_sales_stat_summary)\
 (sss.nmid_sales = sdrs.Артикул ВБ) AND (sdrs.Дата продажи = sss.date_sales)\
 **Группировка по полям** - нет\
 **Дополнительные условия** - нет
@@ -529,7 +529,7 @@ wb_sku = nmid_orders\
 |25|cp.cost|[cp.cost](#cp.cost)|Nullable(22,null)|-|   
 
 ## 3. Таблицы
-### mp_db.ads_cost_history 
+### mp_db_ads_cost_history 
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -543,7 +543,7 @@ wb_sku = nmid_orders\
 |8|paymentType|String(notnull)|Источник списания: Баланс Бонусы Счет |
 |9|advertStatus|Int32(10,notnull)|Статус кампании: 4 - готова к запуску 7 - завершена 8 - отказался 9 - активна 11 - приостановлена |
 
-### mp_db.advert_stats
+### mp_db_advert_stats
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -564,7 +564,7 @@ wb_sku = nmid_orders\
 |15|cr|Float32(12,notnull)|CR(conversion rate) — это отношение количества заказов к общему количеству посещений кампании. За все дни, по всем артикулам WB и платформам.|
 |16|name|String(notnull)|Предмет|
 
-### mp_db.cards_content
+### mp_db_cards_content
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -581,7 +581,7 @@ wb_sku = nmid_orders\
 |11|gender|String(notnull)|Пол|
 |12|tags|String(notnull)|Тэги|
 
-### mp_db.commissions
+### mp_db_commissions
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -596,14 +596,14 @@ wb_sku = nmid_orders\
 |9|subjectName|String(notnull)| |
 |10|date|DateTime(29,notnull)| |
 
-### mp_db.cost_price
+### mp_db_cost_price
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
 |1|nmID|Int32(10,notnull)|Артикул Wildberries|
 |2|cost|Float32(12,notnull)|Стоимость|
 
-### mp_db.kt_stats
+### mp_db_kt_stats
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -622,7 +622,7 @@ wb_sku = nmid_orders\
 |13|addToCartConversion|Float32(12,notnull)|Конверсия в корзину, % (Какой процент посетителей, открывших карточку товара, добавили товар в корзину)|
 |14|cartToOrderConversion|Float32(12,notnull)|Конверсия в заказ, % (Какой процент посетителей, добавивших товар в корзину, сделали заказ)|
 
-### mp_db.orders_stat
+### mp_db_orders_stat
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -655,7 +655,7 @@ wb_sku = nmid_orders\
 |27|gNumber|String(notnull)|Номер заказа|
 |28|srid|String(notnull)|Уникальный идентификатор заказа.|
 
-### mp_db.paid_storage
+### mp_db_paid_storage
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -684,7 +684,7 @@ wb_sku = nmid_orders\
 |23|tariffFixDate|String(notnull)|Дата фиксации тарифа|
 |24|tariffLowerDate|String(notnull)|Дата понижения тарифа|
 
-### mp_db.product_plan
+### mp_db_product_plan
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -693,7 +693,7 @@ wb_sku = nmid_orders\
 |3|monthly_plan|UInt32(10,notnull)| |
 |4|month|Date(0,notnull)| |
 
-### mp_db.sales_detail_report_stat
+### mp_db_sales_detail_report_stat
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -764,7 +764,7 @@ wb_sku = nmid_orders\
 |65|srid|String(notnull)|Уникальный идентификатор заказа.Srid равен rid в ответах методов сборочных заданий.|
 |66|report_type|Int32(10,notnull)|Тип отчёта: 1 — стандартный 2 — для уведомления о выкупе|
 
-### mp_db.sales_stat
+### mp_db_sales_stat
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
@@ -798,7 +798,7 @@ wb_sku = nmid_orders\
 |28|gNumber|String(notnull)|Номер заказа|
 |29|srid|String(notnull)|Уникальный идентификатор заказа|
 
-### mp_db.stocks_stat
+### mp_db_stocks_stat
 
 |Номер столбца|Название столбца|Тип столбца|Описание|
 |:---:|:---:|:---:|:---:|
