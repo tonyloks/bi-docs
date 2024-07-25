@@ -178,10 +178,10 @@ password: 12345m678\
 | ---------- | ---- | ---- | ---- | ---- |
 | 1 | Карточка товара | ``` [nmId] ``` | строка / нет | нет |
 | 2 | Ссылка | ``` URL('https://www.wildberries.ru/catalog/'+ str([Карточка товара]) + '/detail.aspx', str([Карточка товара])) ``` | разметка / нет | нет |
-| 3 | warehouseName | нет  | строка / нет | [warehouseName](#mp_db_stocks_stat_new) |
-| 4 | nmId | нет  | целое число / нет | [nmId](#mp_db_stocks_stat_new) |
-| 5 | techSize | нет  | строка / нет | [techSize](#mp_db_stocks_stat_new) |
-| 6 | quantity | нет  | целое число / нет | [quantity](#mp_db_stocks_stat_new) |
+| 3 | warehouseName | нет  | строка / нет | [warehouseName](#mp_db_stock_size) |
+| 4 | nmId | нет  | целое число / нет | [nmId](#mp_db_stock_size) |
+| 5 | techSize | нет  | строка / нет | [techSize](#mp_db_stock_size) |
+| 6 | quantity | нет  | целое число / нет | [quantity](#mp_db_stock_size) |
 
 ### План факт
 **Таблица / представление** - левое соединение 
