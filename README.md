@@ -502,31 +502,31 @@ wb_sku = nmid_orders\
 
 |Номер столбца|Название столбца|Ссылка на родительский столбец|Тип столбца|Агрегация|
 |:---:|:---:|:---:|:---:|:---:|
-|1|sdrs.Артикул ВБ|[sdrs.Артикул ВБ](#sdrs.Артикул ВБ)|Nullable(10,null)|-|
-|2|sdrs.Артикул продовца|[sdrs.Артикул продовца](#sdrs.Артикул продовца)|Nullable(null)|-|
-|3|sdrs.Дата продажи|[sdrs.Дата продажи](#sdrs.Дата продажи)|Nullable(10,null)|-|
-|4|sdrs.Количество|[sdrs.Количество](#sdrs.Количество)|Nullable(22,null)|-|
-|5|sdrs.Цена до скидок|[sdrs.Цена до скидок](#sdrs.Цена до скидок)|Nullable(22,null)|-|
-|6|sdrs.Цена (со скидкой продавцадо СПП)|[sdrs.Цена (со скидкой продавцадо СПП)](#sdrs.Цена (со скидкой продавцадо СПП))|Nullable(22,null)|-|
-|7|sdrs.Логистика|[sdrs.Логистика](#sdrs.Логистика)|Nullable(22,null)|-|
-|8|sdrs.Комиссия ВБ|[sdrs.Комиссия ВБ](#sdrs.Комиссия ВБ)|Nullable(22,null)|-|
-|9|sdrs.Штрафы|[sdrs.Штрафы](#sdrs.Штрафы)|Nullable(22,null)|-|
-|10|sdrs.Платная премка|[sdrs.Платная премка](#sdrs.Платная премка)|Nullable(22,null)|-|
-|11|ass.date_ads|[ass.date_ads](#ass.date_ads)|Nullable(10,null)|-|
-|12|ass.nmid_ads|[ass.nmid_ads](#ass.nmid_ads)|Nullable(10,null)|-|
-|13|ass.views_ads|[ass.views_ads](#ass.views_ads)|Nullable(19,null)|-|
-|14|ass.clicks_ads|[ass.clicks_ads](#ass.clicks_ads)|Nullable(19,null)|-|
-|15|ass.sum_ads|[ass.sum_ads](#ass.sum_ads)|Nullable(22,null)|-|
-|16|ass.atbs_ads|[ass.atbs_ads](#ass.atbs_ads)|Nullable(19,null)|-|
-|17|ass.orders_ads|[ass.orders_ads](#ass.orders_ads)|Nullable(19,null)|-|
-|18|ass.shks_ads|[ass.shks_ads](#ass.shks_ads)|Nullable(19,null)|-|
-|19|ass.sum_price_ads|[ass.sum_price_ads](#ass.sum_price_ads)|Nullable(22,null)|-|
-|20|pss.date|[pss.date](#pss.date)|Nullable(10,null)|-|
-|21|pss.nmId|[pss.nmId](#pss.nmId)|Nullable(10,null)|-|
-|22|pss.sum_warehousePric|[pss.sum_warehousePric](#pss.sum_warehousePric)|Nullable(22,null)|-|
-|23|pss.sum_barcodesCount|[pss.sum_barcodesCount](#pss.sum_barcodesCount)|Nullable(22,null)|-|
-|24|cp.nmID|[cp.nmID](#cp.nmID)|Nullable(10,null)|-|
-|25|cp.cost|[cp.cost](#cp.cost)|Nullable(22,null)|-|   
+|1|sdrs.Артикул ВБ|[sdrs.Артикул ВБ](#sdrs.Артикул ВБ)|Int32(10,null)|-|
+|2|sdrs.Артикул продовца|[sdrs.Артикул продовца](#sdrs.Артикул продовца)|String(null)|-|
+|3|sdrs.Дата продажи|[sdrs.Дата продажи](#sdrs.Дата продажи)|Date(10,null)|-|
+|4|sdrs.Количество|[sdrs.Количество](#sdrs.Количество)|Float64(22,null)|-|
+|5|sdrs.Цена до скидок|[sdrs.Цена до скидок](#sdrs.Цена до скидок)|Float64(22,null)|-|
+|6|sdrs.Цена (со скидкой продавцадо СПП)|[sdrs.Цена (со скидкой продавцадо СПП)](#sdrs.Цена (со скидкой продавцадо СПП))|Float64(22,null)|-|
+|7|sdrs.Логистика|[sdrs.Логистика](#sdrs.Логистика)|Float64(22,null)|-|
+|8|sdrs.Комиссия ВБ|[sdrs.Комиссия ВБ](#sdrs.Комиссия ВБ)|Float64(22,null)|-|
+|9|sdrs.Штрафы|[sdrs.Штрафы](#sdrs.Штрафы)|Float64(22,null)|-|
+|10|sdrs.Платная премка|[sdrs.Платная премка](#sdrs.Платная премка)|Float64(22,null)|-|
+|11|ass.date_ads|[ass.date_ads](#ass.date_ads)|Date(10,null)|-|
+|12|ass.nmid_ads|[ass.nmid_ads](#ass.nmid_ads)|Int32(10,null)|-|
+|13|ass.views_ads|[ass.views_ads](#ass.views_ads)|Int64(19,null)|-|
+|14|ass.clicks_ads|[ass.clicks_ads](#ass.clicks_ads)|Int64(19,null)|-|
+|15|ass.sum_ads|[ass.sum_ads](#ass.sum_ads)|Float64(22,null)|-|
+|16|ass.atbs_ads|[ass.atbs_ads](#ass.atbs_ads)|Int64(19,null)|-|
+|17|ass.orders_ads|[ass.orders_ads](#ass.orders_ads)|Int64(19,null)|-|
+|18|ass.shks_ads|[ass.shks_ads](#ass.shks_ads)|Int64(19,null)|-|
+|19|ass.sum_price_ads|[ass.sum_price_ads](#ass.sum_price_ads)|Float64(22,null)|-|
+|20|pss.date|[pss.date](#pss.date)|Date(10,null)|-|
+|21|pss.nmId|[pss.nmId](#pss.nmId)|Int32(10,null)|-|
+|22|pss.sum_warehousePric|[pss.sum_warehousePric](#pss.sum_warehousePric)|Float64(22,null)|-|
+|23|pss.sum_barcodesCount|[pss.sum_barcodesCount](#pss.sum_barcodesCount)|Float64(22,null)|-|
+|24|cp.nmID|[cp.nmID](#cp.nmID)|Int32(10,null)|-|
+|25|cp.cost|[cp.cost](#cp.cost)|Float64(22,null)|-|   
 
 ## 3. Таблицы
 ### mp_db_ads_cost_history 
