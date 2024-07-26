@@ -337,7 +337,7 @@ wb_sku = nmid_orders\
 |1|art.supplierArticle|[art.supplierArticle](#mp_db_articleadd)|String(null)|-|
 |2|ID карточки|[nmID_KT](#mp_db_kt_stat_summary)|Int32(10,notnull)|-|
 |3|Дата|[date_kt](#mp_db_kt_stat_summary)|Date(10,notnull)|-|
-|4|Название товара|[itemname_kt](#mp_db_kt_stat_summary)String(notnull)|-|
+|4|Название товара|[itemname_kt](#mp_db_kt_stat_summary)|String(notnull)|-|
 |5|Переходы в карточку (КТ)|[sum_opencardcount_kt](#mp_db_kt_stat_summary)|Int64(19,notnull)|-|
 |6|Положили в корзину (КТ)|[sum_addtocartcount_kt](#mp_db_kt_stat_summary)|Int64(19,notnull)|-|
 |7|Заказали товаров шт. (КТ)|[sum_orderscount_kt](#mp_db_kt_stat_summary)|Int64(19,notnull)|-|
