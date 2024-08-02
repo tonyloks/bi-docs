@@ -183,7 +183,7 @@ password: 12345m678\
 | 5 | techSize | нет  | строка / нет | [techSize](#mp_db_stock_size) |
 | 6 | quantity | нет  | целое число / нет | [quantity](#mp_db_stock_size) |
 
-### План факт
+### План_факт
 **Таблица / представление** - левое соединение 
 [mp_db.plan_fact_current](#mp_db_plan_fact_current) - [mp_db.order_current](#mp_db_order_current)\
 wb_sku = nmid_orders\
