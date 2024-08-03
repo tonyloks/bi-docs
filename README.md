@@ -466,7 +466,7 @@ wb_sku = nmid_orders\
 |4|quantity|[quantity](#qmp_db_stocks_stat)|String(notnull)|-|
 
 ### mp_db_stocks_stat_new
-**Родительская таблица** - [mp_db.sales_sta](#mp_db_sales_stat)t\
+**Родительская таблица** - [mp_db.sales_stat](#mp_db_sales_stat)\
 **Присоединяемые таблицы** - инер джоин [mp_db.stocks_stat](#mp_db_stocks_stat) \
 (s.nmId = st.nmId) AND (s.warehouseName = st.warehouseName)\
 левый джоин cr - ([mp_db.orders_stat](#mp_db_orders_stat) + [mp_db.sales_stat](#mp_db_sales_stat))\
